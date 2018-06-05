@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DbBase/DbBase.iml" filepath="$PROJECT_DIR$/DbBase/DbBase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LWeb.iml" filepath="$PROJECT_DIR$/LWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lmanager/lmanager.iml" filepath="$PROJECT_DIR$/lmanager/lmanager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ltao/ltao.iml" filepath="$PROJECT_DIR$/ltao/ltao.iml" />
+    </modules>
+  </component>
+</project>

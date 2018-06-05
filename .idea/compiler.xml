@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="DbBase" />
+        <module name="lmanager" />
+        <module name="ltao" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.7">
+      <module name="DbBase" target="1.8" />
+      <module name="lmanager" target="1.8" />
+      <module name="LManager" target="1.7" />
+      <module name="ltao" target="1.8" />
+      <module name="LTao" target="1.8" />
+      <module name="LWeb" target="1.8" />
+      <module name="Manager" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

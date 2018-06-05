@@ -1,0 +1,718 @@
+﻿<html xmlns=http://www.w3.org/1999/xhtml><head>                    
+<meta http-equiv=Content-Type content="text/html;charset=utf-8">
+<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><meta content=always name=referrer>
+<title>房卡配置</title>
+<style type="text/css">
+<!--
+body{margin:0px; padding:0px;background-color:#2B2B2B;}
+.weapper1{width:100%;height:100%; background-color:#2B2B2B; }
+.wenzi1{width:600px; height:200px; color:#019fe8; line-height:25px; margin-left:107px}
+-->
+</style>
+<body>
+
+<script type="text/javascript">
+	window.console = window.console || (function () {  
+		var c = {}; c.log = c.warn = c.debug = c.info = c.error = c.time = c.dir = c.profile  
+		= c.clear = c.exception = c.trace = c.assert = function () { };  
+		return c;  
+	})(); 
+
+	function sortNumber(a,b) { 
+		return a - b 
+	} 
+
+	function getArrayStr(array){
+		var str = "";
+		for(var i = 0;i<array.length;i++){
+			if(i != 0){
+				str += ",";
+			}
+		
+			str += array[i];
+		}
+		return str;
+	}
+	
+	function getChild(obj,_className){
+		var arr = new Array()
+		var elem_child = obj.childNodes;
+			
+		for(var i=0; i<elem_child.length;i++){
+			if(typeof(_className)== "undefined"){
+				arr.push(elem_child[i]);
+			}else if(typeof(elem_child[i].className)!= "undefined"){
+				var classNames = elem_child[i].className.split(" ");
+				for(var m in classNames){
+					if(classNames[m] == _className){
+						arr.push(elem_child[i]);
+					}
+				}
+			}
+				
+		}
+		return arr;
+	}
+	
+	function getCurPath(){
+         var pathName = window.location.pathname.substring(1); 
+		 ///D:/a/b/
+         return pathName.substring(0, pathName.lastIndexOf('/')+1);  
+    }
+	
+	function clearChild(obj){
+		var elem_child = obj.childNodes;
+		for(var i = elem_child.length - 1; i >= 0; i--){   
+			obj.removeChild(elem_child[i]);  
+		} 
+
+	}
+
+	function getMap() {//初始化map_,给map_对象增加方法，使map_像Map  
+         var map_ = new Object();
+		 map_._size = 0;
+         map_.put = function(key, value) {  
+			 key += "";
+			 if(map_[key] == null){
+				map_._size += 1;
+			 }
+             map_[key] = value;  
+         };  
+         map_.get = function(key) {  
+             return map_[key+""];  
+         };  
+         map_.remove = function(key) {  
+			key += "";
+			if(map_[key] == null){
+				return;
+			}
+			
+			map_._size -= 1;
+            delete map_[key];  
+         };  
+		  map_.containKey = function(key) {  
+             return map_[key+""] != null;
+         };
+		 
+		  map_.size = function() {  
+             return map_._size;
+         };
+		 
+         map_.keyset = function() {  
+             var ret = ""; 
+			 var i = 0;
+             for(var p in map_) { 
+			    if(typeof(map_[p]) == 'function' || p.substring(0,1) == "_") {
+				 continue;
+				}
+			 
+				if(i != 0){
+					ret += ",";
+				}
+				ret += p;
+				i = i + 1;
+             }  
+             return ret.split(",");  
+         };
+		 
+		  map_.keySetString = function() {  
+             var ret = ""; 
+			 var i = 0;
+             for(var p in map_) { 
+			    if(typeof(map_[p]) == 'function' || p.substring(0,1) == "_") {
+				 continue;
+				}
+			 
+				if(i != 0){
+					ret += ",";
+				}
+				ret += p;
+				i = i + 1;
+             }  
+             return ret;  
+         };  
+         return map_;  
+	}
+</script>
+	<table width="800" border="1" cellpadding="0" cellspacing="1" align=center valign=middle>
+	 <tr>
+		<td bgcolor="" style="color:#fff">预配置</td>
+		<td bgcolor="" style="color:#fff">
+			<b style="color:#AAAAFF;cursor:pointer" onclick="readConfg()">读取预配置</b> 
+		</td>
+	  </tr>
+	  
+	 <tr>
+		<td bgcolor="" style="color:#fff">付费方式</td>
+		<td bgcolor="" style="color:#fff">
+			<div id ="payTypeSystemArea">
+			</div>
+		</td>
+	  </tr>
+	 <tr>
+		<td bgcolor="" style="color:#fff">人数范围</td>
+		<td bgcolor="">
+		<input type="text" id="playerArea" value="2,3,4" rel="3"/>&nbsp;&nbsp;<b style="color:red">(可修改,多个数据用","分割)</b>
+		</td>
+	  </tr>
+	   <tr>
+		<td bgcolor="" style="color:#fff">局数范围</td>
+		<td bgcolor="">
+		<input type="text" id="jushuArea" value="5,10" rel="3" onchange="refreshDemo()"/> &nbsp;&nbsp;<b style="color:red">(可修改,多个数据用","分割)</b>
+		</td>
+	  </tr>
+	   <tr>
+		<td bgcolor="" style="color:#fff">操作平台</td>
+		<td bgcolor="">
+		<b style="color:#AAAAFF;cursor:pointer" onclick="refreshJuShu(false)">刷新</b> 
+		<b style="color:#AAAAFF;cursor:pointer" onclick="refreshJuShu(true)">添加</b>
+		<b style="color:#AAAAFF;cursor:pointer" onclick="importNow()">导出</b>
+		<b style="color:#AAAAFF;cursor:pointer" onclick="autoModify()">智能校验</b>
+		</td>
+	  </tr>
+	    <tr>
+		<td bgcolor="" style="color:#fff">房间设置</td>
+		<td bgcolor="" style="color:#fff">
+			<div id="roomSetArea"></div>
+		
+		</td>
+	  </tr>
+	  <tr>
+		<td bgcolor=""  style="color:#fff">配置格式</td>
+		<td bgcolor="">
+		
+			<table cellpadding="0" cellspacing="1" align=left valign=left>
+				 <tr>
+				<td bgcolor="" >
+					<textarea rows="3" id="formatTextArea" cols="10" style="border:none;overflow:hidden" disabled="disabled"></textarea>
+					<textarea rows="3" id="formatTextArea_clinet" cols="10" style="border:none;overflow:hidden" disabled="disabled"></textarea>
+				</td>
+				<td bgcolor="">
+					<b style="color:red" id="codeShow"></b>
+				</td>
+				</tr>
+			</table>
+		</td>
+	  </tr>
+	</table>
+		<div style="display:none" class="roomSet" id="roomSetDemo">
+			人数:<input type="text" class="v" value="" style="width:100px" title="支持多个人数用&quot;,&quot;分割"/>  
+			付费方式:<select class="payType v">
+					  
+					</select>
+			局数:<select class="jushu v">
+					  <option value ="0">5</option>
+					  <option value ="1">10</option>
+					  <option value="2">15</option>
+					</select>
+			消耗房卡数:<input type="text" class="v" value="" style="width:50px"/>
+			<span style="color:#FF0;cursor:pointer" onclick="deleteSetting(this)">删除</span>
+		</div>
+		
+		<div id="popupcontent" style="position: absolute;border:1px solid #CCC;background-color:#F9F9F9;border:1px solid #333;padding:5px;width:50%;visibility:hidden;">
+		<textarea cols="80" rows="20" style="width:100%;overflow:auto;word-break: break-all;" id="readConfigRoomSet"></textarea>
+		<div style = "text-align:center;margin-top:10px;margin-bottom:10px">
+			<input type="button" value="确定" onclick="initConfg()"/>
+			<input type="button" value="关闭" onclick="closeWindow()"/>
+		</div>
+		</div> 
+	<script type="text/javascript">
+		function getNowFormatDate() {
+			var date = new Date();
+			var seperator1 = "-";
+			var seperator2 = ":";
+			var month = date.getMonth() + 1;
+			var strDate = date.getDate();
+			if (month >= 1 && month <= 9) {
+				month = "0" + month;
+			}
+			if (strDate >= 0 && strDate <= 9) {
+				strDate = "0" + strDate;
+			}
+			var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+					+ " " + date.getHours() + seperator2 + date.getMinutes()
+					+ seperator2 + date.getSeconds();
+			return currentdate;
+		}
+		
+		function refreshDemo(){
+			console.log("refresh:"+getNowFormatDate());
+			refreshJuShu(false,true);
+		}
+		
+		function refreshJuShu(isAppend,notAddNewLine){
+			clearFromatArea();
+			var juShuAreaObj = document.getElementById("jushuArea");
+			var juShuArea = juShuAreaObj.value;
+			juShuArea = juShuArea.replace(/，/g, ','); 
+			
+			var demoDiv = document.getElementById("roomSetDemo");
+			var roomSetArea = document.getElementById("roomSetArea");
+			//demoDiv.style.display="block";
+			var sourceArray = juShuArea.split(",");
+			var array = new Array();
+			for(var i in sourceArray){
+				if(Trim(sourceArray[i]) != ""){
+					array.push(sourceArray[i]);
+				}
+			}
+			
+			var roomSetAreas = "";
+			if(!isAppend){
+				clearChild(roomSetArea);
+				resetJuShu(array);
+				resetPayTypes();
+				showTip("");
+			}
+			
+			if(typeof notAddNewLine != "undefined"){
+				return;
+			}
+			
+			for(var i=0;i<array.length;i++){
+				var roomSetClone = demoDiv.cloneNode(true); // 克隆节点 
+				roomSetClone.removeAttribute("id"); // 修改一下id 值，避免id 重复 
+				roomSetClone.style.display="block";
+				roomSetArea.appendChild(roomSetClone);
+			}
+			
+		}
+
+		function formatTextArea(txt,tip){
+			var obj = document.getElementById("formatTextArea");
+			var htmlTxt = "";
+			var array = txt.split(",");
+			
+			for(var i=0;i<array.length;i++){
+				htmlTxt = htmlTxt+array[i];
+				if(i != array.length-1){
+					htmlTxt=htmlTxt+",\r\n";
+				}
+			}
+
+			obj.innerText = htmlTxt;
+			obj.rows = array.length;
+			
+			if(typeof(tip) == "undefined"){
+				showTip("");
+			}
+			
+			showTip(tip);
+		}
+		
+		function showTip(tip){
+			document.getElementById("codeShow").innerHTML = tip;
+		}
+		
+		function clearFromatArea(){
+			var obj = document.getElementById("formatTextArea");
+			obj.innerText = "";
+			obj.rows = 1;
+			
+			
+			var obj2 = document.getElementById("formatTextArea_clinet");
+			obj2.innerText = "";
+			obj2.rows = 1;
+		}
+		
+		function deleteSetting(obj){
+			var delObj = obj.parentNode;
+			delObj.parentNode.removeChild(delObj);
+
+		}
+		
+		function importNow(){
+			var roomSetArea = document.getElementById("roomSetArea");
+			var elem_child = roomSetArea.childNodes;
+			var strArray = new Array();
+			for(var i = 0; i <elem_child.length; i++){   
+				importFormat(elem_child[i],strArray);
+			}
+			
+			var str = "";
+			for(var i = 0; i <strArray.length; i++){   
+				str = str+ strArray[i];
+				
+				if(i != strArray.length-1){
+					str = str+",";
+				}
+			}
+			
+			//智能校验数量
+			var  typeCount = document.getElementById("payTypeSystemArea").getAttribute("rel");
+			var payerCountText = document.getElementById("playerArea").value;
+			payerCountText = payerCountText.replace(/，/g, ','); 
+			var  playerCount = payerCountText.split(",").length;
+			var juShuCount = document.getElementById("jushuArea").getAttribute("rel");
+			console.log("付费方式数量:"+typeCount+",人数类型数量："+playerCount+","+"局数数量："+juShuCount);
+			var tipCount = juShuCount*playerCount*typeCount;
+			var tip = "";
+			if(tipCount != strArray.length){
+				tip = "当前生成记录数量为["+strArray.length+"]与预测行数["+tipCount+"]有差异，推荐使用[智能校验]检测";
+			}
+			
+			
+			formatTextArea(str,tip);
+		}
+		
+		function importFormat(obj,strArray){
+			var array = getChild(obj,"v");
+			
+			var chairStr = Trim(array[0].value);
+			if(chairStr.length == 0 || obj.style.display == "none"){
+				return;
+			}
+			
+			chairStr = chairStr.replace(/，/g, ','); 
+			var chairCountArray = chairStr.split(",");
+			if(chairCountArray.length == 0){
+				chairCountArray = new Array("0");
+			}
+			for(var i in chairCountArray){
+				var chairCount = emptyToZero(chairCountArray[i]);
+				var index = array[2].selectedIndex; // 选中索引
+				var count=array[2].options[index].value;
+				var type =array[1].value;
+				var juShu = array[2].options[index].text;
+				var card = emptyToZero(array[3].value);
+				var str =  count+chairCount+type+":"+juShu+":"+card;
+				strArray.push(str);
+			}
+			
+		}
+		
+		function emptyToZero(str){
+			if(Trim(str) ==""){
+				return 0;
+			}
+			return str;
+		}
+		
+		function resetJuShu(array){
+			var demoDiv = document.getElementById("roomSetDemo");
+			var juShu = getChild(demoDiv,"jushu")[0];
+			
+			for(var i=juShu.options.length;i>=0;i--){
+				juShu.options.remove(i);  
+			}
+			
+			for(var i=0;i<array.length;i++){
+				juShu.options.add(new Option(array[i],i)); 
+			}
+			
+			 document.getElementById("jushuArea").setAttribute("rel",array.length);
+		}
+		
+		 function Trim(str){
+		   return str.replace(/\s/g,"");
+		}
+		
+		
+		function autoModify(){
+			clearFromatArea();
+			showTip("");
+			var payerCountText = document.getElementById("playerArea").value;
+			payerCountText = payerCountText.replace(/，/g, ','); 
+			var playerCountArray = payerCountText.split(",");
+			var playerCountMap = getMap();
+			for(var i in playerCountArray){
+				playerCountMap.put(playerCountArray[i],1);
+			}
+			
+			var roomSetArea = document.getElementById("roomSetArea");
+			var childrens = getChild(roomSetArea,"roomSet");
+			
+			//显示隐藏payType相对应的条目
+			chekPayTypesHideShow();
+			
+			var tmpMap = getMap();
+			//删除空白行;统计已添加数据,并删除重复数据
+			for(var i in childrens){
+				var dataArray = getChild(childrens[i],"v");
+				var playerText = Trim(dataArray[0].value);
+				if(playerText == ""){
+					roomSetArea.removeChild(childrens[i]);
+					continue;
+				}
+				
+				var lineV = childrens[i].style.display == "none" ? 0:1;
+				playerText = playerText.replace(/，/g, ','); 
+				var playerArray = playerText.split(",");
+				
+				var wilDelMap = getMap();
+				for(var p in playerArray){
+					playerText = playerArray[p];
+					var key = getKey(playerText,+dataArray[1].value,dataArray[2].value);
+					if(tmpMap.containKey(key) || !playerCountMap.containKey(playerText)){
+						wilDelMap.put(playerArray[p],1);
+						continue;
+					}
+					
+					
+					tmpMap.put(key,lineV);
+					console.log("user addKey:"+key);
+				}
+				
+				if(wilDelMap.size() == playerArray.length){
+					roomSetArea.removeChild(childrens[i]);
+					continue;
+				}else if(wilDelMap.size() != 0){
+					var newVaule = "";
+					var ti = 0;
+					for(var p in playerArray){
+						if(wilDelMap.containKey(playerArray[p])){
+							continue;
+						}
+						
+						if(ti != 0){
+							newVaule+=",";
+						}
+						newVaule+=playerArray[p];
+						ti+=1;
+					}
+				
+					dataArray[0].value = newVaule;
+				}
+			}
+			
+			//添加未添加的预测数据
+			var demoDiv = document.getElementById("roomSetDemo");
+			var payChildrens = getChild(demoDiv,"payType")[0].options;
+			var juShuChildrens = getChild(demoDiv,"jushu")[0].options;
+			
+			for(var _i in playerCountArray){
+				var playerCount = playerCountArray[_i];
+				
+				for(var _ii =0;_ii< payChildrens.length;_ii++){
+					var payTypeIdx = payChildrens[_ii].value;
+					
+					for(var _iii = 0;_iii< juShuChildrens.length;_iii++){
+						var roundIdx = juShuChildrens[_iii].value;
+						
+						var key = getKey(playerCount,payTypeIdx,roundIdx);
+						
+						if(tmpMap.containKey(key)){
+							continue;
+						}
+						//添加
+						
+						console.log("addKey:"+key);
+						var roomSetClone = demoDiv.cloneNode(true); // 克隆节点 
+						roomSetClone.removeAttribute("id"); 
+						roomSetClone.style.display="block";
+						roomSetArea.appendChild(initCloneRoomSet(playerCount,roomSetClone,payTypeIdx,roundIdx,""));
+					}
+				}
+				
+			}
+		}
+		
+		function getKey(playerCount,payTypeIdx,roundIdx){
+			return playerCount+","+payTypeIdx+","+roundIdx;
+		}
+		
+		function chekPayTypesHideShow(){
+			var roomSetArea = document.getElementById("roomSetArea");
+			var childrens = getChild(roomSetArea,"roomSet");
+			
+			var demoDiv = document.getElementById("roomSetDemo");
+			var payChildrens = getChild(demoDiv,"payType")[0].options;
+			var allPayArry = config.payArray.keyset();
+			
+			var tmpMap = getMap();
+			for(var _i =0;_i< payChildrens.length;_i++){
+				var payTypeIdx = payChildrens[_i].value;
+				tmpMap.put(payTypeIdx,1);
+			}
+			
+			var retMap = getMap();
+			for(var _i in allPayArry){
+				if(!tmpMap.containKey(allPayArry[_i])){
+					retMap.put(allPayArry[_i],1);
+				}
+			}
+			
+			for(var i in childrens){
+				var dataArray = getChild(childrens[i],"v");
+				
+				if(retMap.containKey(dataArray[1].value)){
+					childrens[i].style.display="none";
+					continue;
+				}
+				
+				if(childrens[i].style.display=="none"){
+					childrens[i].style.display = "block";
+				}
+				
+				var oldValue = dataArray[1].value;
+				clearChild(dataArray[1]);
+				
+				
+				for(var _i =0;_i< payChildrens.length;_i++){
+					//dataArray[1].options.add(payChildrens[_i].cloneNode(true));
+					dataArray[1].options.add(new Option(payChildrens[_i].text,payChildrens[_i].value));
+				}
+				
+				dataArray[1].value = oldValue;
+			}
+		}
+		
+		function initCloneRoomSet(playerCount,roomSetClone,defaultPayType,defaultRoundIdx,cardNum){
+			var array = getChild(roomSetClone,"v");
+			array[0].value = playerCount;
+			array[1].value = defaultPayType;
+			array[2].value = defaultRoundIdx;
+			array[3].value = cardNum;
+			return roomSetClone;
+		}
+		
+		function resetPayTypes(){
+			var demoDiv = document.getElementById("roomSetDemo");
+			var payTypes = getChild(demoDiv,"payType")[0];
+			clearChild(payTypes);
+			var selectPayTypes = getChild(document.getElementById("payTypeSystemArea"),"lablel");
+			var count = 0;
+			for(var i in selectPayTypes){
+				var payTypeRadio = getChild(selectPayTypes[i],"payTypeSystem")[0];
+				if(payTypeRadio.checked){
+					payTypes.options.add(new Option(config.payArray.get(payTypeRadio.value).name,payTypeRadio.value));	
+					count+=1;
+				}
+			}
+			
+			document.getElementById("payTypeSystemArea").setAttribute("rel",count);
+		}
+		
+		
+		var config = {};
+		
+		function initConfig(){
+			config.payArray = getMap(); //= new Array("房主","冠军","均摊");
+			config.payArray.put("0",createPayTypeEntity("房  主","默认值"));
+			config.payArray.put("1",createPayTypeEntity("冠  军","总分最高者付费"));
+			config.payArray.put("2",createPayTypeEntity("均  摊","AA"));
+			config.payArray.put("3",createPayTypeEntity("代  理","一般与房主,冠军一致"));
+			config.payArray.put("4",createPayTypeEntity("俱乐部","一般与房主,冠军一致"));
+		}
+		
+		function createPayTypeEntity(txt,title){
+			var obj = {};
+			obj.name = txt;
+			obj.title = title;
+			return obj;
+		}
+		
+		function initUi(){
+			var payTypeArea = document.getElementById('payTypeSystemArea');
+			var count = 0;
+			for(var p in config.payArray) {  
+				//console.log(p+"--->"+config.payArray[p]+"    "+typeof(config.payArray[p])+"==="+ p.substring(0,1)); 
+				if(typeof(config.payArray[p]) == 'function' || p.substring(0,1) == "_") {
+					continue;
+				}
+				count+=1;
+				payTypeArea.innerHTML +='<label style="cursor:pointer" class="lablel" title='+config.payArray[p].title+'><input class="payTypeSystem" checked="checked" onclick="payTypeChange()" type="checkbox" value="'+p+'"/>'+config.payArray[p].name+'</label>&nbsp;';
+            }
+			payTypeArea.setAttribute("rel",count);
+			refreshDemo();
+			
+		}
+		initConfig();
+		initUi();
+		
+		function payTypeChange(){
+			resetPayTypes();
+			autoModify();
+		}
+		
+		function readConfg(w,h){
+			var popUp = document.getElementById("popupcontent"); 
+			popUp.style.top = "10%"; 
+			popUp.style.left = "25%"; 
+		
+			popUp.style.visibility = "visible"; 
+
+		}
+		
+		function closeWindow(){
+			var obj = document.getElementById("readConfigRoomSet");
+			obj.value="";
+			
+			var popUp = document.getElementById("popupcontent"); 
+			popUp.style.visibility = "hidden"; 
+		}
+		
+		function initConfg(){
+			var formatText = document.getElementById("readConfigRoomSet").value;
+			closeWindow();
+			
+			var roundMap = getMap();//round-index
+			var playerMap = getMap();//
+			var payMap = getMap();//
+			var array = formatText.split(",");
+			
+			for(var _i in array){
+				var tmpArray = array[_i].split(":");
+				var first = tmpArray[0];
+				var roundIdx = parseInt(first/100);
+				first = first%100;
+				var playerCount = parseInt(first/10);
+				var payType = first%10;
+				var round = tmpArray[1];
+				var card = tmpArray[2];
+				
+				if(!roundMap.containKey(round)){
+					roundMap.put(round,roundIdx);
+				}
+				
+				if(!playerMap.containKey(playerCount)){
+					playerMap.put(playerCount,playerCount);
+				}
+				
+				if(!payMap.containKey(payType)){
+					payMap.put(payType,payType);
+				}
+			}
+			
+			//初始化原始面板ui
+			var paySourceArry = getChild(document.getElementById('payTypeSystemArea'),"payTypeSystem");
+			for(var i = 0;i<paySourceArry.length;i++){
+				if(payMap.containKey(paySourceArry[i].value)){
+					paySourceArry[i].checked = true;
+				}else{
+					paySourceArry[i].checked = false;
+				}
+			}
+			
+			document.getElementById('playerArea').value = playerMap.keySetString();
+			
+			var juShuArray = roundMap.keyset();
+			juShuArray.sort(sortNumber);
+			document.getElementById('jushuArea').value =getArrayStr(juShuArray);
+			
+			refreshDemo();
+			
+			//添加设置数据
+			var roomSetArea = document.getElementById("roomSetArea");
+			var demoDiv = document.getElementById("roomSetDemo");
+			
+			for(var _i in array){
+				var tmpArray = array[_i].split(":");
+				var first = tmpArray[0];
+				var roundIdx = parseInt(first/100);
+				first = first%100;
+				var playerCount = parseInt(first/10);
+				var payType = first%10;
+				var round = tmpArray[1];
+				var card = tmpArray[2];
+				
+				var roomSetClone = demoDiv.cloneNode(true); // 克隆节点 
+				roomSetClone.removeAttribute("id"); // 修改一下id 值，避免id 重复 
+				roomSetClone.style.display="block";
+				roomSetArea.appendChild(initCloneRoomSet(playerCount,roomSetClone,payType,roundIdx,card));
+			}
+			
+		}
+	</script>
+</body>
+</html>
