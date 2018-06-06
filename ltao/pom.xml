@@ -44,6 +44,15 @@
 			<groupId>com.lweb</groupId>
 			<artifactId>DbBase</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>LCommPack</groupId>
+			<artifactId>LBaseTool</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
