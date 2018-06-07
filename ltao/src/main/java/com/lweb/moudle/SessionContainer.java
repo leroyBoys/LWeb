@@ -16,6 +16,10 @@ public class SessionContainer {
         return requestingCount.incrementAndGet();
     }
 
+    public int getRequestCount(){
+        return requestingCount.get();
+    }
+
     public int removeRequest(){
         return requestingCount.decrementAndGet();
     }

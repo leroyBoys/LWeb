@@ -17,6 +17,7 @@ public class ApplicationListenerManager implements ApplicationListener {
 
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
+        System.out.println(event.getClass().getName());
         // 在这里可以监听到Spring Boot的生命周期
         /*if (event instanceof ApplicationEnvironmentPreparedEvent) { // 初始化环境变量
             System.out.println("==================初始化环境变量");

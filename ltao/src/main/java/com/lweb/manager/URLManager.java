@@ -51,7 +51,7 @@ public class URLManager {
                 map.put(url,tmpSet);
                 break;
             }
-            String key = url.split("/")[1];
+            String key = "/"+url.split("/")[1];
             tmpSet = map.get(key);
             if(tmpSet == null){
                 tmpSet = new HashSet<>();
@@ -66,7 +66,7 @@ public class URLManager {
         return LOGIN_URL;
     }
 
-    public boolean isWhite(String uri, final int length){
+   public boolean isWhite(String uri, final int length){
         final char c = uri.charAt(URLMatchData.idex);
         for(int i =0,size=urlMatchDatas.length ;i<size;i++){
             if(urlMatchDatas[i].match(uri,c,length)){
@@ -75,4 +75,18 @@ public class URLManager {
         }
         return false;
     }
+
+    public boolean isStatic(String uri, final int length){
+        char c;
+        for(int i =length-2 ;i>=0;i--){
+            c = uri.charAt(i);
+            if('.' == c){
+                return true;
+            }else if('/' == c){
+                return false;
+            }
+        }
+        return false;
+    }
+
 }

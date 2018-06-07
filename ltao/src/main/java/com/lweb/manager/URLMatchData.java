@@ -29,8 +29,8 @@ public class URLMatchData {
             return false;
         }
 
-        for(int i = 1,arryLength = urlArray.length;i<arryLength;i++){
-            if(urlArray[i].startsWith(url)){
+        for(int i = 0,arryLength = urlArray.length;i<arryLength;i++){
+            if(url.startsWith(urlArray[i])){
                 return true;
             }
         }

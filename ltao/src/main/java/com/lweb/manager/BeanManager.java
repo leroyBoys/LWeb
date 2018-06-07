@@ -4,6 +4,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.resource.ResourceUrlProvider;
 
 /**
  * Created by leroy:656515489@qq.com
@@ -25,4 +26,7 @@ public class BeanManager implements ApplicationContextAware {
         return context.getBean(beanName);
     }
 
+    public static <T> T getBean(Class<T> resourceUrlProviderClass) {
+        return context.getBean(resourceUrlProviderClass);
+    }
 }
