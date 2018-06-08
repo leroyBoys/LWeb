@@ -24,7 +24,7 @@ public class LQDispatcherServlet extends DispatcherServlet {
      */
     @Override
     public void init(ServletConfig config) throws ServletException {
-//        this.setDetectAllHandlerMappings(false);
+        this.setDetectAllHandlerMappings(false);
         super.init(config);
     }
 

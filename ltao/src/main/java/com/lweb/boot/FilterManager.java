@@ -1,6 +1,5 @@
 package com.lweb.boot;
 
-import com.lweb.manager.ErrorCode;
 import com.lweb.manager.RouteManager;
 import com.lweb.manager.TimeCacheManager;
 import com.lweb.manager.URLManager;

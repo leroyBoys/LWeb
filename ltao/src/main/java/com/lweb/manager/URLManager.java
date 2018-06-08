@@ -77,7 +77,7 @@ public class URLManager {
     }
 
     public boolean isStatic(String uri, final int length){
-        char c;
+       /* char c;
         for(int i =length-2 ;i>=0;i--){
             c = uri.charAt(i);
             if('.' == c){
@@ -85,7 +85,7 @@ public class URLManager {
             }else if('/' == c){
                 return false;
             }
-        }
+        }*/
         return false;
     }
 
