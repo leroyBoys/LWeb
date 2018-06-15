@@ -1,8 +1,9 @@
-package com.lweb.cache;
+package com.lweb.cache.entity;
 
 import com.dbbase.moudle.system.Main;
 import com.lqsmart.redis.entity.RedisExecuter;
 import com.lqsmart.redis.entity.RedisKey;
+import com.lweb.cache.DBExecuter;
 import com.lweb.cache.impl.DefalutMainIdDBExecuter;
 import com.lweb.cache.impl.MainDBExecuter;
 import com.lweb.cache.impl.PageDBExecuter;

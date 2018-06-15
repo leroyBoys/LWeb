@@ -2,7 +2,7 @@ package com.lweb.action;
 
 import com.dbbase.enums.PlatformType;
 import com.lweb.cache.LQCache;
-import com.lweb.cache.LQCacheKey;
+import com.lweb.cache.entity.LQCacheKey;
 import com.lweb.cache.LQPageCache;
 import com.lweb.manager.ErrorCode;
 import com.lweb.service.system.SystemService;
@@ -28,16 +28,14 @@ public class IndexAction {
     @RequestMapping("wx")
     Object pcHome(Integer page) {
         LQCache lqCache = LQCache.getIntance();
-
+        Object id = lqCache.getCache(LQCacheKey.DefaultMainID, PlatformType.weixin);
+        if(id == null){
+            return ErrorCode.ParamterError;
+        }
         if(page ==null){
-            Object id = lqCache.getCache(LQCacheKey.DefaultMainID, PlatformType.weixin);
-            if(id == null){
-                return ErrorCode.ParamterError;
-            }
-
             Object object= LQCache.getIntance().getCache(LQCacheKey.Main, id);
             return object;
         }
-        return LQPageCache.getIntance().getPageResult("",page);
+        return LQPageCache.getIntance().getMainPages((int)id,page);
     }
 }

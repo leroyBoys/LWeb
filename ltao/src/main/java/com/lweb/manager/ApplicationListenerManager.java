@@ -2,12 +2,10 @@ package com.lweb.manager;
 
 import com.dbbase.enums.PlatformType;
 import com.lgame.util.file.PropertiesTool;
-import com.lgame.util.load.properties.PropertiesHelper;
 import com.lqsmart.core.LQStart;
 import com.lweb.cache.LQCache;
-import com.lweb.cache.LQCacheKey;
+import com.lweb.cache.entity.LQCacheKey;
 import com.lweb.moudle.AppConfig;
-import org.springframework.boot.env.PropertiesPropertySourceLoader;
 import org.springframework.core.env.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -15,11 +13,8 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextStoppedEvent;
-import org.springframework.core.env.PropertiesPropertySource;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.Properties;
 
 /**

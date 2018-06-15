@@ -1,9 +1,7 @@
 package com.lweb.cache;
 
 import com.dbbase.enums.SystemSet;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.lweb.cache.entity.LQCacheKey;
 
 /**
  * Created by leroy:656515489@qq.com
@@ -29,6 +27,6 @@ public class LQSystemCache {
      */
     public int getDefaultMainPageSize() {
         String pageSize = getSet(SystemSet.DefaultMainPageSize);
-        return pageSize == null?6:Integer.valueOf(pageSize);
+        return pageSize == null?2:Integer.valueOf(pageSize);
     }
 }

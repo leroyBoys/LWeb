@@ -1,8 +1,8 @@
 package com.lweb.cache.impl;
 
-import com.dbbase.moudle.system.Main;
 import com.lqsmart.mysql.impl.LQDataSource;
 import com.lweb.cache.DBExecuter;
+import com.lweb.cache.entity.PageDetail;
 
 /**
  * Created by leroy:656515489@qq.com
@@ -11,11 +11,16 @@ import com.lweb.cache.DBExecuter;
 public class PageDBExecuter extends DBExecuter {
 
     @Override
-    public Object getDataFromDB(LQDataSource dataSource, Object... parater) {
+    public Object getDataFromDB(LQDataSource dataSource, Object[] parater) {
         String sql = (String) parater[0];
-        Object[] pars = new Object[parater.length-1];
-        System.arraycopy(parater,1,pars,0,pars.length);
-        return dataSource.ExecuteQueryOne(Main.class,sql, pars);
+        PageDetail pageDetail = (PageDetail) parater[1];
+
+        Object[] pars = null;
+        if(parater.length > 2){
+            pars = (Object[]) parater[2];
+        }
+        pageDetail.setResults(dataSource.ExecuteQueryList(pageDetail.getT(),sql, pars));
+        return pageDetail;
     }
 
     @Override

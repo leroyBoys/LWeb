@@ -4,6 +4,7 @@ import com.lqsmart.core.LQStart;
 import com.lqsmart.entity.Node;
 import com.lqsmart.mysql.impl.LQDataSource;
 import com.lqsmart.redis.impl.LQRedisConnection;
+import com.lweb.cache.entity.LQCacheKey;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,14 +33,17 @@ public class LQCache {
     }
 
 
-    protected String cacheKey(LQCacheKey lqCacheKey,Object... parater){
-        String key = lqCacheKey.getPrexKey();
+    protected String merageKey(String prexKey,Object[] parater){
         if(parater != null && parater.length>0){
             for(int i = 0,size=parater.length;i<size;i++){
-                key+="."+parater[i];
+                prexKey+="."+parater[i];
             }
         }
-        return key;
+        return prexKey;
+    }
+
+    protected String cacheKey(LQCacheKey lqCacheKey, Object[] parater){
+        return merageKey(lqCacheKey.getPrexKey(),parater);
     }
 
     protected Map<String,Object> getCacheMap(){
@@ -47,7 +51,7 @@ public class LQCache {
     }
 
 
-    protected final Object getDataFromMysql(LQCacheKey lqCacheKey,Object... parater){
+    protected final Object getDataFromMysql(LQCacheKey lqCacheKey,Object[] parater){
         DBExecuter dbExecuter = lqCacheKey.getDBExecuter();
         if(dbExecuter == null){
             return null;
@@ -55,7 +59,7 @@ public class LQCache {
         return dbExecuter.getDataFromDB(getDataSourceConnection().getRandomSlave(),parater);
     }
 
-    protected Object getDataFromDB(LQCacheKey lqCacheKey,Object... parater){
+    protected Object getDataFromDB(LQCacheKey lqCacheKey,Object[] parater){
         if(lqCacheKey.getSerialzer() == null){
             return getDataFromMysql(lqCacheKey,parater);
         }
@@ -68,7 +72,7 @@ public class LQCache {
             }
         }
 
-        getRedisConnection().getMaster().setObject(lqCacheKey,object);
+        getRedisConnection().getMaster().setObject(lqCacheKey,object,parater);
         return object;
     }
 
@@ -84,6 +88,9 @@ public class LQCache {
             if(object != null) return (T) object;
 
            object = getDataFromDB(lqCacheKey,parater);
+           if(object == null){
+               return null;
+           }
             _cacheMap.put(cacheKey,object);
         }
 

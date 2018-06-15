@@ -13,7 +13,7 @@ public abstract class DBExecuter {
      * @param parater
      * @return
      */
-    public abstract Object getDataFromDB(LQDataSource dataSource, Object... parater);
+    public abstract Object getDataFromDB(LQDataSource dataSource, Object[] parater);
 
     /**
      *  向mysql中更新缓存对象

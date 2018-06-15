@@ -12,9 +12,9 @@ import com.lweb.cache.DBExecuter;
 public class SystemSetDBExecuter extends DBExecuter {
 
     @Override
-    public Object getDataFromDB(LQDataSource dataSource, Object... parater) {
+    public Object getDataFromDB(LQDataSource dataSource, Object[] parater) {
         int id = ((SystemSet)parater[0]).getDBValue();
-        return dataSource.ExecuteQueryOne(Main.class,"SELECT `value` FROM `system_setting` WHERE id = ?",id);
+        return dataSource.ExecuteQueryOne(Main.class,"SELECT `value` FROM `system_setting` WHERE id = ?",new Object[]{id});
     }
 
     @Override
