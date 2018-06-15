@@ -5,6 +5,10 @@ package com.lweb.manager;
  * 2018/6/5.
  */
 public class TimeCacheManager {
+    public static final int MINUTE=60000;
+    public static final int HOUR=MINUTE*60;
+    public static final int DAY=24*HOUR;
+
     private static final TimeCacheManager timeCacheManager= new TimeCacheManager();
     private TimeCacheManager(){}
     private long curTime;

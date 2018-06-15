@@ -1,5 +1,6 @@
 package com.lweb.boot;
 
+import com.lweb.manager.ErrorCode;
 import com.lweb.manager.RouteManager;
 import com.lweb.manager.TimeCacheManager;
 import com.lweb.manager.URLManager;
@@ -73,7 +74,8 @@ public class FilterManager  implements Filter {
             checkResponseCount(request,response,sessionContainer,filterChain);
         }else {
             request.setAttribute("msg", "请先登录");
-            RouteManager.getInstance().sendRedirect(response,urlManager.LOGIN_URL());
+            RouteManager.getInstance().outErrorCode(response, ErrorCode.NeedLogin);
+         //   RouteManager.getInstance().sendRedirect(response,urlManager.LOGIN_URL());
         }
 
     }

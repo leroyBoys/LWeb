@@ -5,7 +5,7 @@ package com.lweb.manager;
  * 2018/6/6.
  */
 public enum ErrorCode {
-    URLLow(101),;
+    ParamterError(100),URLLow(101),NeedLogin(102);
     private int code;
     ErrorCode(int code){
         this.code = code;

@@ -1,12 +1,26 @@
 package com.lweb.manager;
 
+import com.dbbase.enums.PlatformType;
+import com.lgame.util.file.PropertiesTool;
+import com.lgame.util.load.properties.PropertiesHelper;
+import com.lqsmart.core.LQStart;
+import com.lweb.cache.LQCache;
+import com.lweb.cache.LQCacheKey;
 import com.lweb.moudle.AppConfig;
+import org.springframework.boot.env.PropertiesPropertySourceLoader;
+import org.springframework.core.env.Environment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextStoppedEvent;
+import org.springframework.core.env.PropertiesPropertySource;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
+import java.util.Properties;
 
 /**
  * Created by leroy:656515489@qq.com
@@ -14,10 +28,11 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class ApplicationListenerManager implements ApplicationListener {
+    @Autowired
+    private Environment env;
 
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
-        System.out.println(event.getClass().getName());
         // 在这里可以监听到Spring Boot的生命周期
         /*if (event instanceof ApplicationEnvironmentPreparedEvent) { // 初始化环境变量
             System.out.println("==================初始化环境变量");
@@ -40,7 +55,20 @@ public class ApplicationListenerManager implements ApplicationListener {
     protected void start(){
         System.out.println("==================应用已启动完成");
 
+        try {
+            LQStart.scan(env.getProperty("lq.scan"));
+            Properties p = new Properties();
+            for(String str:env.getActiveProfiles()){
+                p.putAll(PropertiesTool.loadProperty("config/application-"+str+".properties"));
+            }
+
+            LQStart.init(p);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         URLManager.instance().init((AppConfig) BeanManager.getBean("appConfig"));
+
+        LQCache.getIntance().getCache(LQCacheKey.DefaultMainID, PlatformType.weixin);
     }
 
     protected void stop(){

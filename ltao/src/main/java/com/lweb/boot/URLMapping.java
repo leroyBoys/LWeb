@@ -1,7 +1,5 @@
 package com.lweb.boot;
 
-import com.lgame.util.comm.StringTool;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 

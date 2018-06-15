@@ -30,7 +30,7 @@ public class URLMatchData {
         }
 
         for(int i = 0,arryLength = urlArray.length;i<arryLength;i++){
-            if(url.startsWith(urlArray[i])){
+            if(url.equals(urlArray[i])){
                 return true;
             }
         }
