@@ -1,5 +1,9 @@
 package com.lweb.manager;
 
+import com.lgame.util.json.FastJsonTool;
+import com.lweb.moudle.ErrorCode;
+import com.lweb.moudle.ErrorResponse;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -21,7 +25,7 @@ public class RouteManager {
         response.setHeader("Content-type","text/html;charset=UTF-8");//向浏览器发送一个响应头，设置浏览器的解码方式为UTF-8
         try {
             OutputStream stream = response.getOutputStream();
-            stream.write(String.valueOf(error.getCode()).getBytes("UTF-8"));
+            stream.write(String.valueOf(FastJsonTool.getJsonFromBean(new ErrorResponse(error))).getBytes("UTF-8"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -63,7 +63,7 @@ public class ApplicationListenerManager implements ApplicationListener {
         }
         URLManager.instance().init((AppConfig) BeanManager.getBean("appConfig"));
 
-        LQCache.getIntance().getCache(LQCacheKey.DefaultMainID, PlatformType.weixin);
+        LQCache.getIntance().getCache(LQCacheKey.DefaultMainID, PlatformType.weixin.getType());
     }
 
     protected void stop(){
