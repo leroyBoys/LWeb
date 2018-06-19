@@ -1,5 +1,6 @@
 package com.dbbase.moudle.system;
 
+import com.dbbase.enums.MainType;
 import com.dbbase.enums.PlatformType;
 import com.lqsmart.mysql.entity.DBRelation;
 import com.lqsmart.mysql.entity.DBRelations;
@@ -33,14 +34,22 @@ public class Main {
      * 是否为默认主页
      */
     private boolean isDefault;
+    /**
+     * 区域/频道id（关联，搜索时使用）
+     */
+    @LQField
+    private int sectionId;
+    private int[] cateIds;
+    @LQField(convertDBType = EnumNumber)
+    private MainType mainType;
 
-    @DBRelations(relation = DBRelations.Reltaion.OneToMany,
+/*    @DBRelations(relation = DBRelations.Reltaion.OneToMany,
     map = {
             @DBRelation(colum = "data"),
             @DBRelation(colum = "startTime"),
             @DBRelation(colum = "endTime")
     })
-    private List<MainData> mainDatas;
+    private List<MainData> mainDatas;*/
 
     public int getId() {
         return id;
@@ -53,14 +62,14 @@ public class Main {
     public String getTitle() {
         return title;
     }
-
+/*
     public List<MainData> getMainDatas() {
         return mainDatas;
     }
 
     public void setMainDatas(List<MainData> mainDatas) {
         this.mainDatas = mainDatas;
-    }
+    }*/
 
     public void setTitle(String title) {
         this.title = title;
@@ -85,6 +94,30 @@ public class Main {
     public String getTmpId() {
         return tmpId;
 
+    }
+
+    public int getSectionId() {
+        return sectionId;
+    }
+
+    public void setSectionId(int sectionId) {
+        this.sectionId = sectionId;
+    }
+
+    public int[] getCateIds() {
+        return cateIds;
+    }
+
+    public void setCateIds(int[] cateIds) {
+        this.cateIds = cateIds;
+    }
+
+    public MainType getMainType() {
+        return mainType;
+    }
+
+    public void setMainType(MainType mainType) {
+        this.mainType = mainType;
     }
 
     public void setTmpId(String tmpId) {

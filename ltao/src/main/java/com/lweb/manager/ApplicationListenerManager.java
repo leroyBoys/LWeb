@@ -1,11 +1,14 @@
 package com.lweb.manager;
 
 import com.dbbase.enums.PlatformType;
+import com.dbbase.moudle.system.Main;
 import com.lgame.util.file.PropertiesTool;
 import com.lqsmart.core.LQStart;
 import com.lweb.cache.LQCache;
+import com.lweb.cache.LQPageCache;
 import com.lweb.cache.entity.LQCacheKey;
 import com.lweb.moudle.AppConfig;
+import com.lweb.service.maintype.MainTypeServiceExucter;
 import org.springframework.core.env.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -63,7 +66,21 @@ public class ApplicationListenerManager implements ApplicationListener {
         }
         URLManager.instance().init((AppConfig) BeanManager.getBean("appConfig"));
 
-        LQCache.getIntance().getCache(LQCacheKey.DefaultMainID, PlatformType.weixin.getType());
+        initDefaultMain();
+    }
+
+    private void initDefaultMain(){
+        for(MainTypeServiceExucter mainType:MainTypeServiceExucter.values()){
+
+            for(PlatformType platformType:PlatformType.values()){
+                Main main = LQCache.getIntance().getCache(LQCacheKey.DefaultMain,mainType.getMainType().getDBValue(), platformType.getType());
+                if(main == null){
+                    continue;
+                }
+                mainType.getMainTypeService().queryResults(main.getId(),1);
+            }
+        }
+
     }
 
     protected void stop(){

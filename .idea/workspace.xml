@@ -7,10 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="82035a68-cc60-4bbd-8d6d-bfe09c055d7b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/MainType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/moudle/ErrorResponse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/IndexService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/impl/IndexServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/TmpType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/log/LogUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/ShopAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCacheSuper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQShopCache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/DefalutMainDBExecuter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/SecitonDBExecuter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/MainTypeService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/MainTypeServiceExucter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/impl/ArticleService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/impl/MainService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/impl/SearchService.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/test/java/com/lweb/su/Mai2.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/test/java/com/lweb/su/Main.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/test/java/com/lweb/su/Super.java" />
@@ -18,12 +26,23 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/test/java/com/lweb/su/T2.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ltao/src/test/resources/db.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/SystemSet.java" afterPath="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/SystemSet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/Main.java" afterPath="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/MainData.java" afterPath="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/MainData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/Section.java" afterPath="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/Section.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/IndexAction.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/IndexAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/boot/FilterManager.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/boot/FilterManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/DefalutMainIdDBExecuter.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/DefalutMainIdDBExecuter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/LoginAction.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/LoginAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCache.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCache.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQPageCache.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQPageCache.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQSystemCache.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQSystemCache.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/entity/LQCacheKey.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/entity/LQCacheKey.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/MainDBExecuter.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/MainDBExecuter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/PageDBExecuter.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/PageDBExecuter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/ApplicationListenerManager.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/ApplicationListenerManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/RouteManager.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/RouteManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/ErrorCode.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/moudle/ErrorCode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/moudle/ErrorResponse.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/moudle/ErrorResponse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/IndexService.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/IndexService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/impl/IndexServiceImpl.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/impl/IndexServiceImpl.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/DefalutMainIdDBExecuter.java" afterPath="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/ShopDetailDbExecuter.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -61,125 +80,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FilterManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/boot/FilterManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexAction.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/IndexAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="45" column="70" lean-forward="false" selection-start-line="45" selection-start-column="70" selection-end-line="45" selection-end-column="70" />
-              <folding>
-                <element signature="e#622#623#0" expanded="true" />
-                <element signature="e#664#665#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LtaoApplication.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/LtaoApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding>
-                <element signature="e#1552#1553#0" expanded="true" />
-                <element signature="e#1609#1610#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/IndexService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IndexServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/impl/IndexServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LQCache.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCache.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApplicationListenerManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/ApplicationListenerManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="65" column="93" lean-forward="false" selection-start-line="65" selection-start-column="93" selection-end-line="65" selection-end-column="93" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ErrorResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/moudle/ErrorResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding>
-                <element signature="e#232#233#0" expanded="true" />
-                <element signature="e#282#283#0" expanded="true" />
-                <element signature="e#330#331#0" expanded="true" />
-                <element signature="e#380#381#0" expanded="true" />
-                <element signature="e#411#412#0" expanded="true" />
-                <element signature="e#438#439#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LQCacheKey.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/entity/LQCacheKey.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefalutMainIdDBExecuter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/DefalutMainIdDBExecuter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -258,57 +159,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/enums/PlatformType.java" />
-        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/MainData.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/dao/system/impl/SystemDaoImpl.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/boot/FilterManager.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/resources/config/config.properties" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/URLMatchData.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/SystemService.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCacheUpdate.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/impl/SystemServiceImpl.java" />
-        <option value="$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/entity/NodeManger.class" />
-        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/Main.java" />
-        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/redis/LQRedisKey.java" />
-        <option value="$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/redis/entity/ByteSerialzer.class" />
-        <option value="$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/redis/impl/LQRedisConnection.class" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCacheFilter.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/LQMainCacheFilter.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/TimeCacheManager.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQPageResultMap.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQPageCountMap.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/PageSqlManage.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/ErrorCode.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQSystemCacheKey.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/dao/system/SystemDao.java" />
         <option value="$PROJECT_DIR$/ltao/src/test/java/com/lweb/su/Mai2.java" />
         <option value="$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/mysql/impl/LQDataSource.class" />
-        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/SystemSet.java" />
         <option value="$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/entity/Node.class" />
         <option value="$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/util/RandomUtil.class" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCacheKey.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/LtaoApplication.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQSystemCache.java" />
         <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/PageDetail.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/PageDetail.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/entity/LQCacheKey.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/entity/PageCountCacheMap.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/entity/PageDetail.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/DBExecuter.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/MainDBExecuter.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/SystemSetDBExecuter.java" />
         <option value="$PROJECT_DIR$/ltao/src/test/java/com/lweb/Test.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/PageDBExecuter.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCache.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQPageCache.java" />
         <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/MainType.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/RouteManager.java" />
+        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/MainPositonType.java" />
+        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/TmpType.java" />
+        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/log/LogUtil.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/SecitonDBExecuter.java" />
+        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/Section.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/LoginAction.java" />
+        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/Main.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/DefalutMainIdDBExecuter.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/moudle/ErrorResponse.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/ApplicationListenerManager.java" />
-        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/impl/IndexServiceImpl.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/MainDBExecuter.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/MainTypeService.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/MainTypeServiceExucter.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/MainTypeService.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/MainTypeServiceExucter.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/impl/ArticleService.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/impl/MainService.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/PageDBExecuter.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/IndexService.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/impl/IndexServiceImpl.java" />
         <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/IndexAction.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/ApplicationListenerManager.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/DefalutMainDBExecuter.java" />
+        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/MainData.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/moudle/ErrorResponse.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/impl/SearchService.java" />
+        <option value="$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/SystemSet.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQSystemCache.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/entity/LQCacheKey.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQPageCache.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/ShopDetailDbExecuter.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCacheSuper.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCache.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQShopCache.java" />
+        <option value="$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/ShopAction.java" />
       </list>
     </option>
   </component>
@@ -394,7 +295,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="width" value="1932" />
-    <option name="height" value="1040" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -530,460 +431,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="moudle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lweb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="action" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ltao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DbBase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DbBase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DbBase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DbBase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dbbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWeb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DbBase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dbbase" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="enums" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -1011,11 +458,11 @@
       <recent name="E:\workspace\LWeb\LTao\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.dbbase.enums" />
       <recent name="com.lweb.cache" />
       <recent name="com.lweb.cache.impl" />
-      <recent name="com.lweb.su" />
-      <recent name="com.lweb.filter" />
+      <recent name="com.lweb.action" />
+      <recent name="com.lweb.service.maintype.impl" />
+      <recent name="com.dbbase.enums" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\workspace\LWeb\ltao\src\main\resources\config" />
@@ -1497,7 +944,7 @@
       <workItem from="1528260794226" duration="42016000" />
       <workItem from="1528424723091" duration="1263000" />
       <workItem from="1528699287704" duration="64730000" />
-      <workItem from="1528959524962" duration="45091000" />
+      <workItem from="1528959524962" duration="65711000" />
     </task>
     <task id="LOCAL-00001" summary="33">
       <created>1528346178833</created>
@@ -1527,7 +974,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529055392817</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="33">
+      <created>1529061115702</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1529061115702</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1563,16 +1017,16 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195548000" />
+    <option name="totallyTimeSpent" value="216168000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1932" height="1040" extended-state="0" />
+    <frame x="-8" y="0" width="1932" height="1056" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38136512" sideWeight="0.508547" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11057692" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11057692" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1580,22 +1034,22 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41455346" sideWeight="0.4946581" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41386783" sideWeight="0.4946581" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3263506" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3261105" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51505375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.46306506" sideWeight="0.491453" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3163597" sideWeight="0.491453" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2542735" sideWeight="0.77823406" order="7" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2542735" sideWeight="0.22176592" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2061742" sideWeight="0.49786323" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2542735" sideWeight="0.91983694" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2542735" sideWeight="0.08016305" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20260021" sideWeight="0.49786323" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -1656,12 +1110,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/PageDBExecuter.java</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="158" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/mysql/impl/LQDataSource.class</url>
           <line>561</line>
           <properties />
@@ -1672,12 +1120,6 @@
           <line>562</line>
           <properties />
           <option name="timeStamp" value="161" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCache.java</url>
-          <line>79</line>
-          <properties />
-          <option name="timeStamp" value="162" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1692,203 +1134,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.47/fastjson-1.2.47.jar!/com/alibaba/fastjson/support/config/FastJsonConfig.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/mysql/entity/MoreJdbcColumsArray.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/UserAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/mysql/entity/LQPage.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="112" column="5" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="112" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/mysql/compiler/ColumInit.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/mysql/entity/RelationData.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/mysql/entity/DBTable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/mysql/compiler/ScanEntitysTool.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQSystemCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.47/fastjson-1.2.47.jar!/com/alibaba/fastjson/annotation/JSONField.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-192">
-          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/mysql/entity/QueryResultData.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-          <folding>
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/redis/impl/LQRedisConnection.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/ref/Reference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="264" column="14" lean-forward="true" selection-start-line="264" selection-start-column="14" selection-end-line="264" selection-end-column="14" />
-          <folding>
-            <element signature="e#9332#9333#0" expanded="false" />
-            <element signature="e#9368#9369#0" expanded="false" />
-            <element signature="e#9683#9684#0" expanded="false" />
-            <element signature="e#9719#9720#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/TimeCacheManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-          <folding>
-            <element signature="e#492#493#0" expanded="false" />
-            <element signature="e#522#523#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/concurrent/locks/Lock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="183" column="9" lean-forward="false" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/concurrent/locks/ReadWriteLock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="124" column="9" lean-forward="false" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#4966#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/LinkedHashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="296" column="27" lean-forward="false" selection-start-line="296" selection-start-column="9" selection-end-line="296" selection-end-column="27" />
-          <folding>
-            <element signature="e#19667#19668#0" expanded="false" />
-            <element signature="e#19695#19696#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/util/LRUMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#413#414#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="657" column="31" lean-forward="false" selection-start-line="657" selection-start-column="23" selection-end-line="657" selection-end-column="31" />
-          <folding>
-            <element signature="e#23628#23629#0" expanded="false" />
-            <element signature="e#23682#23683#0" expanded="false" />
-            <element signature="e#24329#24330#0" expanded="false" />
-            <element signature="e#24394#24395#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/concurrent/locks/ReentrantReadWriteLock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-280">
-          <caret line="228" column="11" lean-forward="false" selection-start-line="228" selection-start-column="11" selection-end-line="228" selection-end-column="11" />
-          <folding>
-            <element signature="e#7757#7758#0" expanded="false" />
-            <element signature="e#7784#7785#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.0.2.RELEASE/spring-boot-autoconfigure-2.0.2.RELEASE.jar!/org/springframework/boot/autoconfigure/jdbc/JdbcTemplateAutoConfiguration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1323">
-          <caret line="68" column="36" lean-forward="false" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ltao/target/classes/com/lweb/LtaoApplication.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1923,29 +1168,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/DBExecuter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="15" column="27" lean-forward="false" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/entity/Node.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="229" column="0" lean-forward="false" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/MainDBExecuter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1969,64 +1196,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/entity/PageCountCacheMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/mysql/impl/LQDataSource.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="560" column="23" lean-forward="false" selection-start-line="560" selection-start-column="23" selection-end-line="560" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/PageDBExecuter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" column="52" lean-forward="false" selection-start-line="21" selection-start-column="52" selection-end-line="21" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQPageCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="67" column="30" lean-forward="true" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/FromEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/SystemSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/MainType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -2039,75 +1212,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/moudle/ErrorCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/RouteManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="27" column="92" lean-forward="false" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/PlatformType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/moudle/ErrorResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
-            <element signature="e#330#331#0" expanded="true" />
-            <element signature="e#380#381#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/DefalutMainIdDBExecuter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/entity/LQCacheKey.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/ApplicationListenerManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="65" column="93" lean-forward="false" selection-start-line="65" selection-start-column="93" selection-end-line="65" selection-end-column="93" />
           <folding />
         </state>
       </provider>
@@ -2120,20 +1228,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/impl/IndexServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/MainPositonType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+        <state relative-caret-position="216">
+          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/log/LogUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="25" column="23" lean-forward="false" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#826#827#0" expanded="true" />
+            <element signature="e#866#867#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/IndexService.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/lqsmart/Lqsmart/1.0/Lqsmart-1.0.jar!/com/lqsmart/mysql/impl/LQDataSource.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="186">
+          <caret line="656" column="17" lean-forward="false" selection-start-line="656" selection-start-column="17" selection-end-line="656" selection-end-column="17" />
+          <folding>
+            <element signature="e#21573#21574#0" expanded="true" />
+            <element signature="e#21642#21643#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/Section.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="659">
+          <caret line="33" column="24" lean-forward="false" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+          <folding>
+            <element signature="e#769#770#0" expanded="true" />
+            <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#888#889#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+            <element signature="e#960#961#0" expanded="true" />
+            <element signature="e#991#992#0" expanded="true" />
+            <element signature="e#1018#1019#0" expanded="true" />
+            <element signature="e#1058#1059#0" expanded="true" />
+            <element signature="e#1090#1091#0" expanded="true" />
+            <element signature="e#1131#1132#0" expanded="true" />
+            <element signature="e#1161#1162#0" expanded="true" />
+            <element signature="e#1214#1215#0" expanded="true" />
+            <element signature="e#1252#1253#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/SecitonDBExecuter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/TmpType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/DBExecuter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -2142,20 +1310,322 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/MainDBExecuter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/MainTypeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
           <folding>
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1609#1610#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/impl/ArticleService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/PageDBExecuter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/LoginAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/PlatformType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/IndexService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/system/impl/IndexServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/MainTypeServiceExucter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#706#707#0" expanded="true" />
+            <element signature="e#737#738#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/manager/ApplicationListenerManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="75" column="96" lean-forward="false" selection-start-line="75" selection-start-column="96" selection-end-line="75" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/MainData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="43" column="31" lean-forward="false" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#864#865#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/MainType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="12" lean-forward="false" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/moudle/ErrorResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="26" />
+          <folding>
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#282#283#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="true" />
+            <element signature="e#443#444#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/moudle/ErrorCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding>
+            <element signature="e#264#265#0" expanded="false" />
+            <element signature="e#291#292#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/impl/MainService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/service/maintype/impl/SearchService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="15" column="53" lean-forward="false" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
+          <folding>
+            <element signature="e#370#371#0" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/system/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="106" column="17" lean-forward="false" selection-start-line="106" selection-start-column="17" selection-end-line="106" selection-end-column="17" />
+          <folding>
+            <element signature="e#2250#2251#0" expanded="true" />
+            <element signature="e#2280#2281#0" expanded="true" />
+            <marker date="1529388512227" expanded="false" signature="1511:1522" ph=" { " />
+            <marker date="1529388512227" expanded="false" signature="1539:1545" ph=" }" />
+            <marker date="1529388512227" expanded="false" signature="1601:1612" ph=" { " />
+            <marker date="1529388512227" expanded="false" signature="1639:1645" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/enums/SystemSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/ViewAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/UserAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/IndexAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="45" column="70" lean-forward="false" selection-start-line="45" selection-start-column="70" selection-end-line="45" selection-end-column="70" />
+        <state relative-caret-position="1454">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding>
-            <element signature="e#622#623#0" expanded="true" />
-            <element signature="e#664#665#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/DefalutMainDBExecuter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="14" column="53" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DbBase/src/main/java/com/dbbase/moudle/Shop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-749">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/entity/LQCacheKey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/entity/PageCountCacheMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425">
+          <caret line="29" column="11" lean-forward="false" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="16" column="41" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="41" />
+          <folding>
+            <element signature="e#1336#1337#0" expanded="true" />
+            <element signature="e#1367#1368#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQSystemCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="32" column="15" lean-forward="false" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQPageCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQCacheSuper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="28" column="27" lean-forward="false" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/LQShopCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="24" />
+          <folding>
+            <element signature="e#652#653#0" expanded="true" />
+            <element signature="e#692#693#0" expanded="true" />
+            <element signature="e#741#742#0" expanded="true" />
+            <element signature="e#772#773#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/cache/impl/ShopDetailDbExecuter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="15" column="315" lean-forward="true" selection-start-line="15" selection-start-column="315" selection-end-line="15" selection-end-column="315" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ltao/src/main/java/com/lweb/action/ShopAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="9" lean-forward="false" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#407#408#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
           </folding>
         </state>
       </provider>

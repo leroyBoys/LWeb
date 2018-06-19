@@ -16,6 +16,10 @@ public class ErrorResponse {
         this.codeType = codeType.getCode();
     }
 
+    public int getCodeType() {
+        return codeType;
+    }
+
     public String getCode() {
         return code;
     }

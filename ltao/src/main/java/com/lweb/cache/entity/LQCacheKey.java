@@ -1,13 +1,11 @@
 package com.lweb.cache.entity;
 
+import com.dbbase.moudle.Shop;
 import com.dbbase.moudle.system.Main;
 import com.lqsmart.redis.entity.RedisExecuter;
 import com.lqsmart.redis.entity.RedisKey;
 import com.lweb.cache.DBExecuter;
-import com.lweb.cache.impl.DefalutMainIdDBExecuter;
-import com.lweb.cache.impl.MainDBExecuter;
-import com.lweb.cache.impl.PageDBExecuter;
-import com.lweb.cache.impl.SystemSetDBExecuter;
+import com.lweb.cache.impl.*;
 import com.lweb.manager.TimeCacheManager;
 
 /**
@@ -18,11 +16,12 @@ import com.lweb.manager.TimeCacheManager;
 public enum LQCacheKey implements RedisKey{
     SystemSet("systemSet",0, RedisExecuter.strings(),new SystemSetDBExecuter()),
     /** 默认主页id  */
-    DefaultMainID("defaultMainID",0,null,new DefalutMainIdDBExecuter()),
+    DefaultMain("defaultMain",TimeCacheManager.DAY/1000,null,new DefalutMainDBExecuter()),
     /** 主页  */
     Main("main",TimeCacheManager.DAY/1000,RedisExecuter.bytes(Main.class),new MainDBExecuter()),
-    Page("page",TimeCacheManager.DAY/1000,null,new PageDBExecuter())
-    ;
+    Page("page",TimeCacheManager.DAY/1000,null,new PageDBExecuter()),
+    Seciton("section",TimeCacheManager.DAY/1000,null,new SecitonDBExecuter()),
+    ShopDetail("shop", 5*TimeCacheManager.MINUTE/1000,RedisExecuter.bytes(Shop.class) ,new ShopDetailDbExecuter());
     private final String prexKey;
     /** 有效期(秒,0没有有效期) */
     private int expire;

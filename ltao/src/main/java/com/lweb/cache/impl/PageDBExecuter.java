@@ -19,8 +19,7 @@ public class PageDBExecuter extends DBExecuter {
         if(parater.length > 2){
             pars = (Object[]) parater[2];
         }
-        pageDetail.setResults(dataSource.ExecuteQueryList(pageDetail.getT(),sql, pars));
-        return pageDetail;
+        return dataSource.ExecuteQueryList(pageDetail.getT(),sql, pars);
     }
 
     @Override

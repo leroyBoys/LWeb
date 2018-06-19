@@ -29,4 +29,9 @@ public class LQSystemCache {
         String pageSize = getSet(SystemSet.DefaultMainPageSize);
         return pageSize == null?2:Integer.valueOf(pageSize);
     }
+
+    public int getDefaultShopPageSize() {
+        String pageSize = getSet(SystemSet.DefaultShopPageSize);
+        return pageSize == null?2:Integer.valueOf(pageSize);
+    }
 }

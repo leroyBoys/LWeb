@@ -9,5 +9,4 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface IndexService {
-    Object getDefaultMain(int platformType, int page);
 }

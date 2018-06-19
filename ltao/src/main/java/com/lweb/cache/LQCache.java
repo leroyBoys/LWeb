@@ -14,7 +14,7 @@ import java.util.Map;
  * Created by leroy:656515489@qq.com
  * 2018/6/13.
  */
-public class LQCache {
+public class LQCache extends LQCacheSuper<String>{
     private static final LQCache intance = new LQCache();
     protected LQCache(){}
 
@@ -50,59 +50,4 @@ public class LQCache {
         return cacheMap;
     }
 
-
-    protected final Object getDataFromMysql(LQCacheKey lqCacheKey,Object[] parater){
-        DBExecuter dbExecuter = lqCacheKey.getDBExecuter();
-        if(dbExecuter == null){
-            return null;
-        }
-        return dbExecuter.getDataFromDB(getDataSourceConnection().getRandomSlave(),parater);
-    }
-
-    protected Object getDataFromDB(LQCacheKey lqCacheKey,Object[] parater){
-        if(lqCacheKey.getSerialzer() == null){
-            return getDataFromMysql(lqCacheKey,parater);
-        }
-
-        Object object = getRedisConnection().getRandomSlave().getObject(lqCacheKey,parater);
-        if(object == null){
-            object = getDataFromMysql(lqCacheKey,parater);
-            if(object == null){
-                return null;
-            }
-        }
-
-        getRedisConnection().getMaster().setObject(lqCacheKey,object,parater);
-        return object;
-    }
-
-    public final <T> T getCache(LQCacheKey lqCacheKey,Object... parater){
-        String cacheKey = cacheKey(lqCacheKey,parater);
-
-        final Map<String,Object> _cacheMap = getCacheMap();
-        Object object = _cacheMap.get(cacheKey);
-        if(object != null) return (T) object;
-
-        synchronized (lqCacheKey){
-            object = _cacheMap.get(cacheKey);
-            if(object != null) return (T) object;
-
-           object = getDataFromDB(lqCacheKey,parater);
-           if(object == null){
-               return null;
-           }
-            _cacheMap.put(cacheKey,object);
-        }
-
-        return  (T)object;
-    }
-
-    public void updateCache(LQCacheKey lqCacheKey,Object cache,Object... parater){
-        final DBExecuter dbExecuter = lqCacheKey.getDBExecuter();
-
-        if(!dbExecuter.updateDb(getDataSourceConnection().getMaster(),cache)){
-            return;
-        }
-
-    }
 }

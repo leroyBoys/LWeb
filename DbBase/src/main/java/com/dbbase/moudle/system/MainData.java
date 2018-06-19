@@ -22,6 +22,9 @@ public class MainData {
     private int endTime;
     @LQField
     private String data;
+
+    @LQField(name = "tmp_type")
+    private short tmpType;
     public int getId() {
         return id;
     }
@@ -36,6 +39,14 @@ public class MainData {
 
     public int getMain_id() {
         return main_id;
+    }
+
+    public short getTmpType() {
+        return tmpType;
+    }
+
+    public void setTmpType(short tmpType) {
+        this.tmpType = tmpType;
     }
 
     public void setMain_id(int main_id) {
