@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>MOXI</title>
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet"/>
+    <link th:href="@{/css/iframe.css}" rel="stylesheet"/>
+
+    <link th:href="@{/css/plugins/iCheck/custom.css}" rel="stylesheet"/>
+    <link th:href="@{/css/plugins/jsTree/style.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<div class="wrapper wrapper-content white-bg">
+    <div class="row">
+        <div class="col-lg-4">
+            <div id="menuTree">
+            </div>
+        </div>
+        <div class="col-lg-6" id="editor" style="display: none">
+            <form class="form-inline" role="form" id="menuForm" action="/manager/menu/editor">
+                <div class="form-group">
+                    <label class="form-label">icon</label>
+                    <input type="text" name="value" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">title</label>
+                    <input type="text" name="text" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">url</label>
+                    <input type="text" name="url" class="form-control">
+                    <input type="text" name="parentId" value="0" style="display: none">
+                    <input type="text" name="id" value="0" style="display: none">
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="formSubmit">新增</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<!-- Mainly scripts -->
+<script th:src="@{/js/jquery-2.1.1.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/common/global.js}"></script>
+<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script th:src="@{/js/plugins/jsTree/jstree.js}"></script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var callback = function (res) {
+
+    }
+
+    $(document).ready(function () {
+        $("#menuForm").lqform( function (res) {
+            callback(res);
+        });
+
+        function add(obj) {
+            $("#editor").show();
+            $('#menuForm')[0].reset();
+            var inst = jQuery.jstree.reference(obj.reference);
+            var clickedNode = inst.get_node(obj.reference);
+            $("#menuForm button").text("新增");
+            $("#menuForm input[name='parentId']").val(clickedNode.original.id);
+            callback = function (res) {
+                var newNode = inst.create_node(inst.get_node(obj.reference),res);
+                $("#editor").hide();
+            }
+        }
+
+        function editor(obj) {
+            $("#editor").show();
+            var inst = jQuery.jstree.reference(obj.reference);
+            var clickedNode = inst.get_node(obj.reference);
+            $("#menuForm button").text("保存");
+            $("#menuForm input[name='id']").val(clickedNode.original.id);
+            $("#menuForm input[name='icon']").val(clickedNode.icon);
+            $("#menuForm input[name='text']").val(clickedNode.text);
+            $("#menuForm input[name='parentId']").val(clickedNode.original.parentId);
+            callback = function (res) {
+                $("#editor").hide();
+                inst.rename_node(obj.reference,$("#menuForm input[name='text']").val());
+            }
+        }
+
+        $.get('/manager/menus', function (data) {
+          $("#menuTree").jstree({
+                'core': {
+                    data: data,
+                    'multiple': false,
+                    'check_callback': true,
+                    "themes" : { "stripes" : true },
+                },
+                'types': {
+                    'default': {
+                        'icon': 'none'
+                    }
+                },
+                'plugins': ['types', 'contextmenu', 'wholerow', 'sort', 'unique','dnd'
+                ],
+                "contextmenu": {
+                    "items": {
+                        "create": null,
+                        "rename": null,
+                        "remove": null,
+                        "ccp": null,
+                        "add": {
+                            "label": "新增菜单",
+                            "action": function (obj) {
+                             //   var inst = jQuery.jstree.reference(obj.reference);
+                               // var clickedNode = inst.get_node(obj.reference);
+
+                           //     var newNode = inst.create_node(inst.get_node(obj.reference),{text:"tome"}, "after", "", "");
+                       //         console.log(newNode);
+                           //     inst.edit(newNode, newNode.val)
+                                add(obj);
+// inst.hide_all(obj.reference,'');
+// inst.jstree('create');
+                            }
+                        },
+                        "rename": {
+                            "label": "修改菜单",
+                            "action": function (obj) {
+                              //  var inst = jQuery.jstree.reference(obj.reference);
+
+                              //  var clickedNode = inst.get_node(obj.reference);
+                               // console.log(clickedNode,clickedNode.val,obj.reference);
+                            //    inst.edit(obj.reference, clickedNode.val)
+// inst.rename_node(obj.reference,clickedNode.id);
+                                editor(obj)
+                            }
+                        },
+                        "delete": {
+                            "label": "删除菜单",
+                            "action": function (obj) {
+                                var inst = jQuery.jstree.reference(obj.reference);
+                                var clickedNode = inst.get_node(obj.reference);
+                                if(confirm("确认要删除菜单"+clickedNode.original.text+"吗")){
+                                    $.get("/manager/menu/del?id="+clickedNode.original.id,function () {
+                                        inst.delete_node(obj.reference);
+                                    })
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        })
+
+
+    });
+
+
+    /*]]>*/
+</script>
+</body>
+
+</html>

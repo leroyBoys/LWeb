@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<nav class="navbar-default navbar-static-side" role="navigation" th:fragment="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> 
+                    	<span th:if="${session.user.image}">
+                            <img alt="image" class="img-circle" th:src="${session.user.image}" />
+						</span>
+                    	<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> 
+                            	<span class="block m-t-xs">
+                            		<strong class="font-bold" th:text="${session.user.name}"> Mr.MoXi</strong>
+                             	</span> 
+                             </span>
+                     	</a>
+                    </div>
+                    <div class="logo-element" th:text="${session.user.name}">
+                        MOXI
+                    </div>
+                </li>
+
+                <li  th:each="menu : ${menus}">
+
+                    <th:block th:if="${#lists.isEmpty(menu.children)}">
+                        <a href="#" class="tab-menu"  th:url="${menu.url}" th:title="${menu.text}">
+                            <i th:if="${menu.icon}" th:class="${menu.icon}"></i>
+                            <span class="nav-label" th:text="${menu.text}"></span>
+                        </a>
+                    </th:block>
+                    <th:block th:if="${not #lists.isEmpty(menu.children)}">
+
+                        <a href="#" >
+                            <i th:if="${menu.icon}" th:class="${menu.icon}"></i>
+                            <span class="nav-label" th:text="${menu.text}">11</span><span class="fa arrow"></span>
+                        </a>
+
+                        <ul class="nav nav-second-level collapse">
+                            <th:block th:each="menu : ${menu.children}">
+
+                                <li>
+
+                                <th:block th:if="${#lists.isEmpty(menu.children)}">
+                                    <a href="#" class="tab-menu"  th:url="${menu.url}" th:title="${menu.text}" th:text="${menu.text}">
+                                    </a>
+                                </th:block>
+                                <th:block th:if="${not #lists.isEmpty(menu.children)}">
+                                    <a href="#" >
+                                        <th:block th:text="${menu.text}">
+                                        </th:block>
+                                        <span class="fa arrow"></span>
+                                    </a>
+
+                                    <ul class="nav nav-third-level">
+                                        <li th:each="menu : ${menu.children}">
+                                            <a href="#" class="tab-menu"  th:url="${menu.url}" th:title="${menu.text}" th:text="${menu.text}"></a>
+                                        </li>
+                                    </ul>
+
+                                </th:block>
+
+                                </li>
+                            </th:block>
+                        </ul>
+                    </th:block>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
+
+
+

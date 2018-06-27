@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MOXI</title>
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+
+    <link th:href="@{/css/plugins/iCheck/custom.css}" rel="stylesheet"/>
+</head>
+
+<body>
+
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation" th:include="common/nav :: navigation"></nav>
+    <div id="page-wrapper" class="gray-bg">
+        <div class="border-bottom" th:include="common/header :: headerTop"></div>
+
+        <div class="row wrapper white-bg page-heading">
+            <ul class="nav nav-tabs border-none" role="tablist">
+
+            </ul>
+        </div>
+
+        <div class="wrapper wrapper-content tab-content">
+            <div id="defaultHome" class="border-bottom" th:include="default_main :: main"></div>
+        </div>
+
+        <div class="lq_footer footer" th:include="common/footer :: copyright"></div>
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+<script th:src="@{/js/jquery-2.1.1.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+
+<!-- Peity -->
+<script th:src="@{/js/plugins/peity/jquery.peity.min.js}"></script>
+
+<!-- Custom and plugin javascript -->
+<script th:src="@{/js/inspinia.js}"></script>
+<script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+<script th:src="@{/js/common/tabs.js}"></script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var pageHTML = [[${pageHTML}]];
+    $(document).ready(function () {
+        $("#pageHTML").html(pageHTML);
+
+    });
+
+    function updateState(id,state){
+        if(confirm("确定删除此条信息?")){
+            $.ajax({
+                type: "POST",
+                url: "newsCategoryEditState?id="+id+"&state="+state,
+                contentType: "application/json; charset=utf-8",
+                success: function(msg){
+                    window.location.reload();
+                },
+                error: function(){
+                    alert("系统异常！");
+                }
+            });
+        }
+    }
+    /*]]>*/
+</script>
+</body>
+
+</html>
