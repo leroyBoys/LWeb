@@ -7,73 +7,151 @@
 </head>
 <body>
 	<div class="row border-bottom" th:fragment="headerTop">
-        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-            <form role="search" class="navbar-form-custom" action="#">
-                <div class="form-group">
-                    <input placeholder="搜索..." class="form-control" name="top-search" id="top-search" type="text"/>
+
+        <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-inverse " role="navigation">
+            <div class="navbar-header">
+
+                <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
+                    <div class="btn-group">
+                        <!---  <img class="navbar-brand-logo visible-lg visible-xs navbar-logo" src="../images/logo-white.svg" title="Admuissss">-->
+                        <th:block  th:text="${session.user.name}"></th:block>
+                    </div>
+
+                    <div class="hidden-xs btn-group version-toggle">
+                        <button type="button" class="btn btn-outline btn-default dropdown-toggle btn-sm btn-icon wb-chevron-down" id="versionToggle" data-toggle="dropdown" aria-expanded="false"></button>
+                        <ul class="dropdown-menu" aria-labelledby="versionToggle" role="menu">
+                            <li role="presentation">
+                                <a href="/login" role="menuitem">切换账号</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </form>
-        </div>
-            <ul class="nav navbar-top-links navbar-right">
-                <li>
-                    <span class="m-r-sm text-muted welcome-message">Welcome !</span>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
+            </div>
+            <div class="navbar-container container-fluid">
+                <div class="collapse navbar-collapse navbar-collapse-toolbar" id="admui-navbarCollapse">
+                    <ul class="nav navbar-toolbar navbar-left">
+                        <li class="hidden-float">
+                            <a data-toggle="menubar" class="hidden-float" href="javascript:;" role="button" id="admui-toggleMenubar">
+                                <i class="icon hamburger hamburger-arrow-left">
+                                    <span class="sr-only">切换目录</span>
+                                    <span class="hamburger-bar"></span>
+                                </i>
                             </a>
                         </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <div class="text-center link-block">
-                                <a href="#">
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </div>
+                        <li class="navbar-menu nav-tabs-horizontal nav-tabs-animate is-load" id="admui-navbar">
+                            <ul class="nav navbar-toolbar nav-tabs" role="tablist">
+                                <!-- 顶部菜单 -->
+
+                                <th:block  th:each="menu,iterStat : ${menus}">
+                                    <th:block th:if="${iterStat.index < 6}">
+
+                                        <li role="presentation" th:class="${iterStat.index ==0?'active':''}">
+
+                                            <th:block th:if="${#lists.isEmpty(menu.children)}">
+                                                <a th:href="${menu.url}" target="_blank" data-iframe role="menuitem">
+                                            </th:block>
+                                            <th:block th:if="${not #lists.isEmpty(menu.children)}">
+                                                <a data-toggle="tab" th:href="${'#navTabsItem'+menu.id}" th:aria-controls="${'navTabsItem'+menu.id}" role="tab" aria-expanded="false">
+                                            </th:block>
+
+                                            <i th:if="${menu.icon}" th:class="${menu.icon}"></i>
+                                            <span th:text="${menu.text}">平台系统</span>
+                                            </a>
+                                        </li>
+
+
+                                    </th:block>
+                                    <th:block th:if="${iterStat.index == 6}">
+                                        <li class="dropdown" id="admui-navbarSubMenu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;" data-animation="slide-bottom" aria-expanded="true" role="button">
+                                                <i class="icon wb-more-vertical"></i>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+
+                                                <th:block  th:each="menu,iterStat : ${menus}">
+                                                    <th:block th:if="${iterStat.index >= 6}">
+
+                                                        <li class="no-menu" role="presentation">
+                                                            <th:block th:if="${#lists.isEmpty(menu.children)}">
+                                                                <a th:href="${menu.url}" target="_blank" data-iframe role="menuitem">
+                                                            </th:block>
+                                                            <th:block th:if="${not #lists.isEmpty(menu.children)}">
+                                                                <a data-toggle="tab" th:href="${'#navTabsItem'+menu.id}" th:aria-controls="${'navTabsItem'+menu.id}" role="tab" aria-expanded="false">
+                                                            </th:block>
+
+                                                                <i th:if="${menu.icon}" th:class="${menu.icon}"></i>
+                                                                <span th:text="${menu.text}">平台系统</span>
+                                                            </a>
+                                                        </li>
+
+                                                    </th:block>
+                                                </th:block>
+
+                                            </ul>
+                                        </li>
+
+                                    </th:block>
+
+                                </th:block>
+
+                            </ul>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-sign-out"></i> 登 出
-                    </a>
-                </li>
-            </ul>
+                    <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+                        <li class="dropdown" id="admui-navbarMessage">
+                            <a data-toggle="dropdown" href="javascript:;" class="msg-btn" aria-expanded="false" data-animation="scale-up" role="button">
+                                <i class="icon wb-bell" aria-hidden="true"></i>
+                                <span class="badge badge-danger up msg-num"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
+                                <li class="dropdown-menu-header" role="presentation">
+                                    <h5>最新消息</h5>
+                                    <span class="label label-round label-danger"></span>
+                                </li>
+                                <li class="list-group" role="presentation">
+                                    <div class="navbar-message-content" id="admui-messageContent" data-height="220px" data-plugin="slimScroll"></div>
+                                    <script type="text/html" id="admui-messageTpl">
+                                        {{if msgList.length < 1}}
+                                        <p class="text-center height-200 vertical-align">
+                                            <small class="vertical-align-middle opacity-four">没有新消息</small>
+                                        </p>
+                                        {{else}}
+                                        {{each msgList}}
+                                        <a class="list-group-item" href="#" data-message-id="{{$value.messageId}}" data-title="{{$value.title}}" data-content="{{$value.content}}" role="menuitem">
+                                            <div class="media">
+                                                <div class="media-left padding-right-10">
+                                                    <i class="icon {{$value.type | iconType}} white icon-circle" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h6 class="media-heading">{{$value.title}}</h6>
+                                                    <time class="media-meta" datetime="{{$value.sendTime}}">
+                                                        {{$value.sendTime | timeMsg}}
+                                                    </time>
+                                                </div>
+                                            </div>
+                                        </a>{{/each}}
+                                        {{/if}}
+                                    </script>
+                                </li>
+                                <li class="dropdown-menu-footer" role="presentation">
+                                    <a href="../system/account.html#message" data-iframe target="_blank">
+                                        <i class="icon fa-navicon"></i> 所有消息
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="hidden-xs" id="admui-navbarFullscreen" data-toggle="tooltip" data-placement="bottom" title="全屏">
+                            <a class="icon icon-fullscreen" data-toggle="fullscreen" href="#" role="button">
+                                <span class="sr-only">全屏</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
         </nav>
-	</div>
+
+    </div>
+
 </body>
 </html>

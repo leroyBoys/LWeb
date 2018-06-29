@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html  class="no-js css-menubar" lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
 
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <title>MOXI</title>
-
-    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
-    <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet"/>
-    <link th:href="@{/css/iframe.css}" rel="stylesheet"/>
-
-    <link th:href="@{/css/plugins/iCheck/custom.css}" rel="stylesheet"/>
-    <link th:href="@{/css/plugins/jsTree/style.css}" rel="stylesheet"/>
+    <title>菜单管理</title>
+    <!--[if lt IE 10]>
+    <script th:src="@{/plugins/vendor/media-match/media.match.min.js}"></script>
+    <script th:src="@{/plugins/vendor/respond/respond.min.js}"></script>
+    <![endif]-->
+    <!-- 样式 -->
+    <link rel="stylesheet" th:href="@{/plugins/themes/global/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/plugins/themes/base/css/site.css}" id="admui-siteStyle">
+    <link rel="stylesheet" th:href="@{/plugins/vendor/jstree/jstree.css}">
+    <!-- 图标 CSS-->
+    <link rel="stylesheet" th:href="@{/plugins/fonts/font-awesome/font-awesome.css}">
+    <link rel="stylesheet" th:href="@{/plugins/fonts/web-icons/web-icons.css}">
 </head>
 
 <body>
-<div class="wrapper wrapper-content white-bg">
+<div class="page-content">
     <div class="row">
         <div class="col-lg-4">
             <div id="menuTree">
@@ -27,7 +39,7 @@
             <form class="form-inline" role="form" id="menuForm" action="/manager/menu/editor">
                 <div class="form-group">
                     <label class="form-label">icon</label>
-                    <input type="text" name="value" class="form-control">
+                    <input type="text" name="icon" class="form-control">
                 </div>
                 <div class="form-group">
                     <label class="form-label">title</label>
@@ -48,13 +60,14 @@
 
 </div>
 
-<!-- Mainly scripts -->
-<script th:src="@{/js/jquery-2.1.1.js}"></script>
-<script th:src="@{/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/common/global.js}"></script>
-<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
-<script th:src="@{/js/plugins/jsTree/jstree.js}"></script>
 
+<!-- 插件 -->
+<script th:src="@{/plugins/jquery.min.js}"></script>
+<script th:src="@{/plugins/bootstrap.min.js}"></script>
+<script th:src="@{/plugins/vendor/jstree/jstree.min.js}"></script>
+<script th:src="@{/plugins/themes/base/js/app.js}"></script>
+
+<script th:src="@{/js/common/global.js}"></script>
 <script th:inline="javascript">
     /*<![CDATA[*/
     var callback = function (res) {
@@ -85,8 +98,9 @@
             var clickedNode = inst.get_node(obj.reference);
             $("#menuForm button").text("保存");
             $("#menuForm input[name='id']").val(clickedNode.original.id);
-            $("#menuForm input[name='icon']").val(clickedNode.icon);
-            $("#menuForm input[name='text']").val(clickedNode.text);
+            $("#menuForm input[name='icon']").val(clickedNode.original.icon);
+            $("#menuForm input[name='text']").val(clickedNode.original.text);
+            $("#menuForm input[name='url']").val(clickedNode.original.url);
             $("#menuForm input[name='parentId']").val(clickedNode.original.parentId);
             callback = function (res) {
                 $("#editor").hide();
@@ -118,26 +132,12 @@
                         "add": {
                             "label": "新增菜单",
                             "action": function (obj) {
-                             //   var inst = jQuery.jstree.reference(obj.reference);
-                               // var clickedNode = inst.get_node(obj.reference);
-
-                           //     var newNode = inst.create_node(inst.get_node(obj.reference),{text:"tome"}, "after", "", "");
-                       //         console.log(newNode);
-                           //     inst.edit(newNode, newNode.val)
                                 add(obj);
-// inst.hide_all(obj.reference,'');
-// inst.jstree('create');
                             }
                         },
                         "rename": {
                             "label": "修改菜单",
                             "action": function (obj) {
-                              //  var inst = jQuery.jstree.reference(obj.reference);
-
-                              //  var clickedNode = inst.get_node(obj.reference);
-                               // console.log(clickedNode,clickedNode.val,obj.reference);
-                            //    inst.edit(obj.reference, clickedNode.val)
-// inst.rename_node(obj.reference,clickedNode.id);
                                 editor(obj)
                             }
                         },

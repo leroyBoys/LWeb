@@ -6,75 +6,100 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<nav class="navbar-default navbar-static-side" role="navigation" th:fragment="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav metismenu" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element"> 
-                    	<span th:if="${session.user.image}">
-                            <img alt="image" class="img-circle" th:src="${session.user.image}" />
-						</span>
-                    	<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> 
-                            	<span class="block m-t-xs">
-                            		<strong class="font-bold" th:text="${session.user.name}"> Mr.MoXi</strong>
-                             	</span> 
-                             </span>
-                     	</a>
-                    </div>
-                    <div class="logo-element" th:text="${session.user.name}">
-                        MOXI
-                    </div>
-                </li>
+<nav class="site-menubar site-menubar-dark" id="admui-siteMenubar"  th:fragment="navigation">
+    <div class="site-menubar-body">
+        <div class="tab-content height-full" id="admui-navTabs">
+            <!-- 一级菜单 -->
+            <th:block th:each="menu,iterStat : ${menus}">
 
-                <li  th:each="menu : ${menus}">
+                <th:block th:if="${not #lists.isEmpty(menu.children)}">
+                    <div th:id="${'navTabsItem'+menu.id}" role="tabpanel" th:class="${'tab-pane animation-fade height-full '+(iterStat.index ==0?'active':'')}">
+                        <div>
+                            <ul class="site-menu">
+                                <li class="site-menu-category" th:text="${menu.text}"></li>
 
-                    <th:block th:if="${#lists.isEmpty(menu.children)}">
-                        <a href="#" class="tab-menu"  th:url="${menu.url}" th:title="${menu.text}">
-                            <i th:if="${menu.icon}" th:class="${menu.icon}"></i>
-                            <span class="nav-label" th:text="${menu.text}"></span>
-                        </a>
-                    </th:block>
-                    <th:block th:if="${not #lists.isEmpty(menu.children)}">
+                                <!-- 二级菜单 -->
 
-                        <a href="#" >
-                            <i th:if="${menu.icon}" th:class="${menu.icon}"></i>
-                            <span class="nav-label" th:text="${menu.text}">11</span><span class="fa arrow"></span>
-                        </a>
 
-                        <ul class="nav nav-second-level collapse">
-                            <th:block th:each="menu : ${menu.children}">
+                                <th:block th:each="menu2 : ${menu.children}">
 
-                                <li>
+                                    <th:block th:if="${#lists.isEmpty(menu2.children)}">
 
-                                <th:block th:if="${#lists.isEmpty(menu.children)}">
-                                    <a href="#" class="tab-menu"  th:url="${menu.url}" th:title="${menu.text}" th:text="${menu.text}">
-                                    </a>
-                                </th:block>
-                                <th:block th:if="${not #lists.isEmpty(menu.children)}">
-                                    <a href="#" >
-                                        <th:block th:text="${menu.text}">
-                                        </th:block>
-                                        <span class="fa arrow"></span>
-                                    </a>
-
-                                    <ul class="nav nav-third-level">
-                                        <li th:each="menu : ${menu.children}">
-                                            <a href="#" class="tab-menu"  th:url="${menu.url}" th:title="${menu.text}" th:text="${menu.text}"></a>
+                                        <li class="site-menu-item ">
+                                            <a data-iframe th:href="${menu2.url}" target="_blank">
+                                                <i th:if="${menu2.icon}" th:class="${menu2.icon}" aria-hidden="true"></i>
+                                                <span class="site-menu-title" th:text="${menu2.text}">平台系统</span>
+                                            </a>
                                         </li>
-                                    </ul>
+
+                                    </th:block>
+                                    <th:block th:if="${not #lists.isEmpty(menu2.children)}">
+
+                                        <li class="site-menu-item has-sub ">
+
+                                            <a href="javascript:;">
+                                                <i th:if="${menu2.icon}" th:class="${menu2.icon}" aria-hidden="true"></i>
+                                                <span class="site-menu-title" th:text="${menu2.text}">平台系统</span><span class="site-menu-arrow"></span>
+                                            </a>
+                                            <ul class="site-menu-sub">
+                                                <th:block th:each="menu3,iterStat : ${menu2.children}">
+
+                                                    <th:block th:if="${#lists.isEmpty(menu3.children)}">
+
+                                                        <li class="site-menu-item ">
+                                                            <a data-iframe th:href="${menu3.url}" target="_blank">
+                                                                <span class="site-menu-title" th:text="${menu3.text}">平台系统</span>
+                                                            </a>
+                                                        </li>
+
+                                                    </th:block>
+
+
+                                                    <!-- 三级菜单 -->
+                                                    <th:block th:if="${not #lists.isEmpty(menu3.children)}">
+
+                                                        <li class="site-menu-item has-sub ">
+
+                                                            <a href="javascript:;">
+                                                                <span class="site-menu-title" th:text="${menu3.text}">平台系统</span><span class="site-menu-arrow"></span>
+                                                            </a>
+                                                            <ul class="site-menu-sub">
+                                                                <th:block th:each="menu4,iterStat : ${menu3.children}">
+
+                                                                    <li class="site-menu-item ">
+                                                                        <a data-iframe th:href="${menu4.url}" target="_blank">
+                                                                            <span class="site-menu-title" th:text="${menu4.text}">平台系统</span>
+                                                                        </a>
+                                                                    </li>
+                                                                </th:block>
+                                                            </ul>
+
+                                                        </li>
+
+                                                    </th:block>
+
+
+                                            </th:block>
+                                            </ul>
+                                        </li>
+
+                                    </th:block>
 
                                 </th:block>
 
-                                </li>
-                            </th:block>
-                        </ul>
-                    </th:block>
-                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-            </ul>
+                </th:block>
+
+            </th:block>
+
+
         </div>
-    </nav>
+    </div>
+</nav>
+
 </body>
 </html>
 

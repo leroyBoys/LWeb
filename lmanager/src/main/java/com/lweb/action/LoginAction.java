@@ -37,5 +37,9 @@ public class LoginAction {
         request.getSession().setAttribute("user",admin);
         return "redirect:main";
     }
+    @RequestMapping("/default_main")
+    public String default_main(){
+        return "default_main";
+    }
 
 }
