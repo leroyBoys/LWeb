@@ -16,9 +16,9 @@ public class SystemDaoImpl implements SystemDao{
     @Override
     public Main getMainData(int id) {
         if(id == 0){
-            return daoManager.getRandomSlave().ExecuteQueryOne(Main.class,"select * from system_main_data where   type=?", PlatformType.pc);
+            return daoManager.getRandomSlave().ExecuteQueryOne(Main.class,"select * from system_main_data where   type="+PlatformType.pc.getType());
         }
-        return daoManager.getRandomSlave().ExecuteQueryOne(Main.class,id);
+        return daoManager.getRandomSlave().ExecuteQueryById(Main.class,id);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class SystemDaoImpl implements SystemDao{
 
     @Override
     public Section getSection(int sectionId) {
-        return daoManager.getRandomSlave().ExecuteQueryOne(Section.class,sectionId);
+        return daoManager.getRandomSlave().ExecuteQueryById(Section.class,sectionId);
     }
 
 }
