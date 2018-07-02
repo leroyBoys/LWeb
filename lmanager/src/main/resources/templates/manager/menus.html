@@ -31,7 +31,7 @@
 <body>
 <div class="page-content">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div id="menuTree">
             </div>
         </div>
@@ -68,6 +68,7 @@
 <script th:src="@{/plugins/themes/base/js/app.js}"></script>
 
 <script th:src="@{/js/common/global.js}"></script>
+<script th:src="@{/js/common/alert.js}"></script>
 <script th:inline="javascript">
     /*<![CDATA[*/
     var callback = function (res) {
@@ -78,15 +79,26 @@
             callback(res);
         });
 
-        function add(obj) {
+        function add(obj,isSuperParent) {
             $("#editor").show();
             $('#menuForm')[0].reset();
             var inst = jQuery.jstree.reference(obj.reference);
             var clickedNode = inst.get_node(obj.reference);
             $("#menuForm button").text("新增");
-            $("#menuForm input[name='parentId']").val(clickedNode.original.id);
+            if(isSuperParent == undefined || !isSuperParent){
+                $("#menuForm input[name='parentId']").val(clickedNode.original.id);
+            }else {
+                $("#menuForm input[name='parentId']").val(0);
+            }
             callback = function (res) {
-                var newNode = inst.create_node(inst.get_node(obj.reference),res);
+
+                let node = null;
+                if(isSuperParent == undefined || !isSuperParent){
+                    node = inst.get_node(obj.reference);
+                }else {
+                    node = inst.get_parent(obj.reference);
+                }
+                var newNode = inst.create_node(node,res);
                 $("#editor").hide();
             }
         }
@@ -106,6 +118,50 @@
                 inst.rename_node(obj.reference,$("#menuForm input[name='text']").val());
             }
         }
+        function contextmenuFunction(node) {
+            let addSuperParent = null;
+            if(node.original.parentId == 0){
+                addSuperParent = {
+                    "label": "添加菜单(同级)",
+                    "action":  function (obj) {
+                        add(obj,true);
+                    }
+                }
+            }
+
+            return  {
+                "create": null,
+                "rename": null,
+                "remove": null,
+                "addSuperParent": addSuperParent,
+                "add": {
+                    "label": "添加菜单",
+                    "action": function (obj) {
+                        add(obj);
+                    }
+                },
+                "rename": {
+                    "label": "修改菜单",
+                    "action": function (obj) {
+                        editor(obj)
+                    }
+                },
+                "delete": {
+                    "label": "删除菜单",
+                    "action": function (obj) {
+                        var inst = jQuery.jstree.reference(obj.reference);
+                        var clickedNode = inst.get_node(obj.reference);
+                        lqtip.confirm("确认要删除菜单<b> "+clickedNode.original.text+"</b> 吗",function () {
+                            console.log("=========sssssssssss=========");
+                            $.get("/manager/menu/del?id="+clickedNode.original.id,function () {
+                                          inst.delete_node(obj.reference);
+                            })
+                        });
+
+                    }
+                }
+            };
+        }
 
         $.get('/manager/menus', function (data) {
           $("#menuTree").jstree({
@@ -123,43 +179,13 @@
                 'plugins': ['types', 'contextmenu', 'wholerow', 'sort', 'unique','dnd'
                 ],
                 "contextmenu": {
-                    "items": {
-                        "create": null,
-                        "rename": null,
-                        "remove": null,
-                        "ccp": null,
-                        "add": {
-                            "label": "新增菜单",
-                            "action": function (obj) {
-                                add(obj);
-                            }
-                        },
-                        "rename": {
-                            "label": "修改菜单",
-                            "action": function (obj) {
-                                editor(obj)
-                            }
-                        },
-                        "delete": {
-                            "label": "删除菜单",
-                            "action": function (obj) {
-                                var inst = jQuery.jstree.reference(obj.reference);
-                                var clickedNode = inst.get_node(obj.reference);
-                                if(confirm("确认要删除菜单"+clickedNode.original.text+"吗")){
-                                    $.get("/manager/menu/del?id="+clickedNode.original.id,function () {
-                                        inst.delete_node(obj.reference);
-                                    })
-                                }
-                            }
-                        }
-                    }
+                    "items":contextmenuFunction
                 }
             });
         })
 
 
     });
-
 
     /*]]>*/
 </script>

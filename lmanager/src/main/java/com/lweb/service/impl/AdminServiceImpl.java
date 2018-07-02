@@ -40,7 +40,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public int editorMenus(SystemMenu systemMenu) {
         LQStart.getJdbcManager().getMaster().ExecuteEntity(systemMenu);
-        CacheManager.getInstance().addNewSystemMenu(systemMenu);
+        CacheManager.getInstance().getSystemMenus().clear();
         return systemMenu.getId();
     }
 
