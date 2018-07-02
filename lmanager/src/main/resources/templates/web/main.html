@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html  class="no-js css-menubar" lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <title>登录</title>
+    <!--[if lt IE 10]>
+    <script th:src="@{/plugins/vendor/media-match/media.match.min.js}"></script>
+    <script th:src="@{/plugins/vendor/respond/respond.min.js}"></script>
+    <![endif]-->
+    <!-- 样式 -->
+    <link rel="stylesheet" th:href="@{/plugins/themes/global/css/bootstrap.css}">
+    <!-- 图标 CSS-->
+    <link rel="stylesheet" th:href="@{/plugins/fonts/font-awesome/font-awesome.css}">
+    <link rel="stylesheet" th:href="@{/plugins/fonts/web-icons/web-icons.css}">
+    <!-- 插件 CSS -->
+    <link rel="stylesheet" th:href="@{/plugins/vendor/datatables-bootstrap/dataTables.bootstrap.css}" >
+    <link rel="stylesheet" th:href="@{/plugins/vendor/datatables-responsive/dataTables.responsive.css}" >
+    <script th:src="@{/plugins/jquery.min.js}"></script>
+    <script th:src="@{/plugins/bootstrap.min.js}"></script>
+</head>
+
+<body class="layout-full">
+    <div class="page animation-fade page-data-tables">
+        <div class="form-inline example-box margin-bottom-20" id="lqtoolbar" role="form">
+            <div class="form-group">
+                <label for="DTMinAge">最小年龄:</label>
+                <input type="text" class="form-control" id="DTMinAge" name="DTMinAge" placeholder="最小年龄">
+            </div>
+            <div class="form-group">
+                <label for="DTMaxAge">最大年龄:</label>
+                <input type="text" class="form-control" id="DTMaxAge" name="DTMaxAge" placeholder="最大年龄">
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <table class="lqtable table table-bordered table-hover dataTable table-striped width-full text-nowrap"
+                   data-paging-type="full_numbers">
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>职位</th>
+                    <th>工作地点</th>
+                    <th>年龄</th>
+                    <th>入职时间</th>
+                    <th>年薪</th>
+                    <th>年薪2</th>
+                    <th>年2薪</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>李霞</td>
+                    <td>系统架构师</td>
+                    <td>北京</td>
+                    <td>61</td>
+                    <td>2011/04/25</td>
+                    <td>&yen;320,800</td>
+                    <td>2011/04/25</td>
+                    <td>2011/04/25</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+<!-- 插件 -->
+<script th:src="@{/plugins/vendor/slimscroll/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables/jquery.dataTables.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-bootstrap/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-responsive/dataTables.responsive.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-buttons/dataTables.buttons.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-buttons/buttons.print.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-buttons/buttons.html5.min.js}"></script>
+<script th:src="@{/plugins/themes/base/js/app.js}"></script>
+<script th:src="@{/js/common/global.js}"></script>
+<script th:src="@{/js/common/table.js}"></script>
+</html>

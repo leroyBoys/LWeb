@@ -19,7 +19,7 @@ $.fn.lqform = function(options) {
     }
     this.on("submit",function () {
         try{
-            let check = settings.check == null?_check: settings.check;
+            var check = settings.check == null?_check: settings.check;
             check(_this);
             if(!settings.isRight){
                 event.preventDefault();
@@ -30,7 +30,7 @@ $.fn.lqform = function(options) {
             console.log(e);
         }
 
-        let url = settings.url == null?$(this).attr("action"):settings.url;
+        var url = settings.url == null?$(this).attr("action"):settings.url;
         console.log("form submit  data:",_this.data,"url:"+url);
         $.post(url, _this.data,
             function(res){
@@ -66,10 +66,10 @@ $.fn.lqform = function(options) {
             if($(this).attr("name") == undefined){
                 return
             }
-            let tagName = $(this)[0].tagName;
-            let type = $(this).attr("type");
-            let name = $(this).attr("name");
-            let required = $(this).attr("required");
+            var tagName = $(this)[0].tagName;
+            var type = $(this).attr("type");
+            var name = $(this).attr("name");
+            var required = $(this).attr("required");
             if(tagName == "SELECT"){
                 obj[name]=$(this).val();
                 if(required!= undefined && required){
