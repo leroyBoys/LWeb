@@ -36,13 +36,13 @@ public class FilterManager implements Filter {
             RouteManager.getInstance().sendRedirect(response,LOGIN_URL);
             return;
         }else if(uri.endsWith(".js")  || uri.endsWith(".css")  || uri.endsWith(".jpg") || uri.endsWith(".png") || uri.startsWith("/img/")|| uri.startsWith("/font")){
-            next(request,servletResponse,filterChain);
+            next(request,response,filterChain);
             return;
         }
 
         System.out.println(uri);
         if(uri.startsWith(LOGIN_URL)){
-            next(request,servletResponse,filterChain);
+            next(request,response,filterChain);
             return;
         }
 
@@ -64,11 +64,12 @@ public class FilterManager implements Filter {
     }
 
 
-    private void next(HttpServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain){
+    private void next(HttpServletRequest servletRequest, HttpServletResponse response, FilterChain filterChain){
         try {
-            filterChain.doFilter(servletRequest,servletResponse);
+            filterChain.doFilter(servletRequest,response);
         }catch (Exception e){
             e.printStackTrace();
+            response.setStatus(500);
         }
     }
 
