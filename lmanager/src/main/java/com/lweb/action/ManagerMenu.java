@@ -1,8 +1,5 @@
 package com.lweb.action;
 
-import com.dbbase.moudle.admin.Admin;
-import com.dbbase.moudle.system.Menu;
-import com.lgame.util.json.FastJsonTool;
 import com.lweb.entity.SystemMenu;
 import com.lweb.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
  * 2018/6/21.
  */
 @Controller
-@RequestMapping
 public class ManagerMenu {
     @Autowired
     private AdminService adminService;
@@ -47,5 +43,6 @@ public class ManagerMenu {
     public Object delMenu(int id){
         return adminService.delMenu(id);
     }
+
 
 }

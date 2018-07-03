@@ -43,13 +43,14 @@ public class Main {
     @LQField(convertDBType = EnumNumber)
     private MainType mainType;
 
-/*    @DBRelations(relation = DBRelations.Reltaion.OneToMany,
+    @DBRelations(relation = DBRelations.Reltaion.OneToMany,
     map = {
             @DBRelation(colum = "data"),
+            @DBRelation(colum = "data_id",targetColum = "id"),
             @DBRelation(colum = "startTime"),
             @DBRelation(colum = "endTime")
     })
-    private List<MainData> mainDatas;*/
+    private List<MainData> mainDatas;
 
     public int getId() {
         return id;
@@ -62,14 +63,13 @@ public class Main {
     public String getTitle() {
         return title;
     }
-/*
     public List<MainData> getMainDatas() {
         return mainDatas;
     }
 
     public void setMainDatas(List<MainData> mainDatas) {
         this.mainDatas = mainDatas;
-    }*/
+    }
 
     public void setTitle(String title) {
         this.title = title;

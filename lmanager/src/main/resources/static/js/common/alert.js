@@ -164,14 +164,10 @@ var lqtip ={};
                 var modal = $('#' + id);
                 modal.find('.ok').removeClass('btn-primary').addClass('btn-success');
                 modal.find('.cancel').show();
-                modal.off().on("click",function () {
-                    alert(1);
-                });
-                console.log("=========11=========",options.okCallBack);
+                modal.find('.ok').on("click",options.okCallBack);
                 return {
                     id: id,
                     on: function (callback) {
-                        console.log("==================");
                         if (callback && callback instanceof Function) {
                             modal.find('.ok').click(function () { callback(true); });
                             modal.find('.cancel').click(function () { callback(false); });

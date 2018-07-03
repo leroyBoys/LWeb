@@ -24,6 +24,7 @@
     <!-- 图标 CSS-->
     <link rel="stylesheet" th:href="@{/plugins/fonts/font-awesome/font-awesome.css}">
     <link rel="stylesheet" th:href="@{/plugins/fonts/web-icons/web-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
     <!-- 插件 CSS -->
     <link rel="stylesheet" th:href="@{/plugins/vendor/datatables-bootstrap/dataTables.bootstrap.css}" >
     <link rel="stylesheet" th:href="@{/plugins/vendor/datatables-responsive/dataTables.responsive.css}" >
@@ -46,6 +47,35 @@
 
         <div class="panel-body">
             <table class="lqtable table table-bordered table-hover dataTable table-striped width-full text-nowrap"
+                   data-paging-type="full_numbers">
+                <thead>
+                <tr>
+                    <th lq-colum="name">姓名</th>
+                    <th lq-colum="zhiwei">职位</th>
+                    <th>工作地点</th>
+                    <th>年龄</th>
+                    <th>入职时间</th>
+                    <th>年薪</th>
+                    <th>年薪2</th>
+                    <th>年2薪</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>李霞</td>
+                    <td>系统架构师</td>
+                    <td>北京</td>
+                    <td>61</td>
+                    <td>2011/04/25</td>
+                    <td>&yen;320,800</td>
+                    <td>2011/04/25</td>
+                    <td>2011/04/25</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <table id="sss" class="lqtable table table-bordered table-hover dataTable table-striped width-full text-nowrap"
                    data-paging-type="full_numbers">
                 <thead>
                 <tr>

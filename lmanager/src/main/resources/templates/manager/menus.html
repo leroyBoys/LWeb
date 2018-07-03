@@ -152,12 +152,10 @@
                         var inst = jQuery.jstree.reference(obj.reference);
                         var clickedNode = inst.get_node(obj.reference);
                         lqtip.confirm("确认要删除菜单<b> "+clickedNode.original.text+"</b> 吗",function () {
-                            console.log("=========sssssssssss=========");
                             $.get("/manager/menu/del?id="+clickedNode.original.id,function () {
                                           inst.delete_node(obj.reference);
                             })
                         });
-
                     }
                 }
             };

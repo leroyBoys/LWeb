@@ -1,6 +1,17 @@
 $(function () {
+    var lqtables = $('.lqtable');
+    if(lqtables.length == 0){
+        return
+    }
+
+    $('.lqtable').each(function () {
+        console.log($(this),this);
+    })
+
+
+
     $('.lqtable').DataTable($.po('dataTable', {
-        'dom': '<"dt-dom-toolbar">frtip'
+        'dom': '<"#lqtoolbar">frtip'
     }));
 
     var toolBar = $("#lqtoolbar");
@@ -10,5 +21,5 @@ $(function () {
         toolBar = toolBar.clone();
         $("#lqtoolbar").remove();
     }
-    $('div.dt-dom-toolbar').html(toolBar.html());
+    $('#lqtoolbar').html(toolBar.html());
 });
