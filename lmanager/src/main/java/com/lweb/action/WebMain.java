@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 public class WebMain {
     @Autowired
     private AdminService adminService;
-    @GetMapping("/main")
+    @GetMapping("/web/main")
     public String main(HttpServletRequest request){
         request.setAttribute("menus",adminService.getSystemMenus());
         return "main";

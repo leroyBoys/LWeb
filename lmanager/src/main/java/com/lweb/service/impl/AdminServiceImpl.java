@@ -3,6 +3,7 @@ package com.lweb.service.impl;
 import com.dbbase.moudle.admin.Admin;
 import com.lgame.util.encry.MD5Tool;
 import com.lqsmart.core.LQStart;
+import com.lqsmart.mysql.entity.LQPage;
 import com.lweb.entity.SystemMenu;
 import com.lweb.manager.CacheManager;
 import com.lweb.service.AdminService;
@@ -49,5 +50,20 @@ public class AdminServiceImpl implements AdminService {
         LQStart.getJdbcManager().getMaster().DelEntity(SystemMenu.class,id);
         CacheManager.getInstance().getSystemMenus().clear();
         return true;
+    }
+
+    @Override
+    public LQPage getAdmins(LQPage lqPage) {
+        return LQStart.getJdbcManager().getMaster().ExecuteQueryForPage(Admin.class,lqPage);
+    }
+
+    @Override
+    public Admin getAdminById(int id) {
+        return LQStart.getJdbcManager().getMaster().ExecuteQueryById(Admin.class,id);
+    }
+
+    @Override
+    public void saveAdmin(Admin admin) {
+        LQStart.getJdbcManager().getMaster().ExecuteEntity(admin);
     }
 }
