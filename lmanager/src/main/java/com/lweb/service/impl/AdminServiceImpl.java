@@ -4,6 +4,7 @@ import com.dbbase.moudle.admin.Admin;
 import com.lgame.util.encry.MD5Tool;
 import com.lqsmart.core.LQStart;
 import com.lqsmart.mysql.entity.LQPage;
+import com.lweb.entity.QueryPage;
 import com.lweb.entity.SystemMenu;
 import com.lweb.manager.CacheManager;
 import com.lweb.service.AdminService;
@@ -53,7 +54,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public LQPage getAdmins(LQPage lqPage) {
+    public QueryPage getAdmins(QueryPage lqPage) {
         return LQStart.getJdbcManager().getMaster().ExecuteQueryForPage(Admin.class,lqPage);
     }
 

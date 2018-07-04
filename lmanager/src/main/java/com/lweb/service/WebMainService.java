@@ -2,6 +2,7 @@ package com.lweb.service;
 
 import com.dbbase.moudle.system.Main;
 import com.dbbase.moudle.system.MainData;
+import com.lweb.entity.QueryPage;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * 2018/7/3.
  */
 public interface WebMainService {
-    List<Main> getBaseMains();
+    QueryPage getBaseMains(QueryPage page);
     Main getMainById(int id);
     void saveMain(Main main);
     void saveMainData(MainData mainData);

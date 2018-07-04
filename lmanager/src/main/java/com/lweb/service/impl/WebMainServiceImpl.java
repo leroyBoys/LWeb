@@ -5,6 +5,7 @@ import com.dbbase.moudle.system.Main;
 import com.dbbase.moudle.system.MainData;
 import com.lgame.util.encry.MD5Tool;
 import com.lqsmart.core.LQStart;
+import com.lweb.entity.QueryPage;
 import com.lweb.service.WebMainService;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,8 @@ import java.util.List;
 @Service
 public class WebMainServiceImpl implements WebMainService{
     @Override
-    public List<Main> getBaseMains() {
-        return LQStart.getJdbcManager().getMaster().ExecuteQueryList(Main.class,"select * from system_main");
+    public QueryPage getBaseMains(QueryPage page) {
+        return LQStart.getJdbcManager().getMaster().ExecuteQueryForPage(Main.class,page);
     }
 
     @Override

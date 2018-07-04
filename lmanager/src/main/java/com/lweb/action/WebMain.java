@@ -1,8 +1,11 @@
 package com.lweb.action;
 
+import com.dbbase.moudle.admin.Admin;
 import com.dbbase.moudle.system.Main;
 import com.dbbase.moudle.system.MainData;
+import com.lgame.util.encry.MD5Tool;
 import com.lqsmart.mysql.entity.LQPage;
+import com.lweb.entity.QueryPage;
 import com.lweb.service.AdminService;
 import com.lweb.service.WebMainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by leroy:656515489@qq.com
@@ -23,8 +27,9 @@ public class WebMain {
     @Autowired
     private WebMainService webMainService;
     @GetMapping("/web/main/list")
-    public Object mainList(LQPage page){
-        return webMainService.getBaseMains();
+    public Object mainList(QueryPage page,HttpServletRequest request){
+        page.initConditions(request);
+        return webMainService.getBaseMains(page);
     }
 
     @GetMapping("/web/main")
@@ -43,4 +48,16 @@ public class WebMain {
         return true;
     }
 
+    @PostMapping("/web/admin/list")
+    public QueryPage getAdmins(QueryPage page,HttpServletRequest request){
+        page.initConditions(request);
+        return adminService.getAdmins(page);
+    }
+
+    @PostMapping("/web/admin/save")
+    public boolean saveAdmin(Admin admin){
+        admin.setPassword(MD5Tool.GetMD5Code(admin.getPassword()));
+        adminService.saveAdmin(admin);
+        return true;
+    }
 }

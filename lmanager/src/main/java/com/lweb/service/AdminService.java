@@ -2,6 +2,7 @@ package com.lweb.service;
 
 import com.dbbase.moudle.admin.Admin;
 import com.lqsmart.mysql.entity.LQPage;
+import com.lweb.entity.QueryPage;
 import com.lweb.entity.SystemMenu;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface AdminService {
 
     Object delMenu(int id);
 
-    LQPage getAdmins(LQPage lqPage);
+    QueryPage getAdmins(QueryPage lqPage);
     Admin getAdminById(int id);
     void  saveAdmin(Admin admin);
 }
