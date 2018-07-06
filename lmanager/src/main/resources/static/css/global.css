@@ -1,0 +1,16 @@
+div.dataTables_length {
+    float: left;
+    margin: 0;
+    margin-top: 15px;
+}
+.tableCheckBox span{
+    color: blue;
+    cursor: pointer;
+}
+.lqtoolbar > div{
+    margin-bottom: 10px;
+}
+
+.modifyButtonGroup .button{
+    margin: 0;
+}

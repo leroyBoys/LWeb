@@ -4,6 +4,7 @@ import com.dbbase.moudle.admin.Admin;
 import com.dbbase.moudle.system.Main;
 import com.dbbase.moudle.system.MainData;
 import com.lgame.util.encry.MD5Tool;
+import com.lgame.util.json.FastJsonTool;
 import com.lqsmart.mysql.entity.LQPage;
 import com.lweb.entity.QueryPage;
 import com.lweb.service.AdminService;
@@ -11,6 +12,7 @@ import com.lweb.service.WebMainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -49,8 +51,9 @@ public class WebMain {
     }
 
     @PostMapping("/web/admin/list")
-    public QueryPage getAdmins(QueryPage page,HttpServletRequest request){
+    public QueryPage getAdmins(@RequestBody QueryPage page, HttpServletRequest request){
         page.initConditions(request);
+        System.out.println(FastJsonTool.getJsonFromBean(page));
         return adminService.getAdmins(page);
     }
 

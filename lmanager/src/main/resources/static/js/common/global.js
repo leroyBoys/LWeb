@@ -106,3 +106,6 @@ $.fn.lqform = function(options) {
 
     return this;
 }
+
+
+$('[data-toggle="tooltip"]').tooltip({trigger: 'hover'});

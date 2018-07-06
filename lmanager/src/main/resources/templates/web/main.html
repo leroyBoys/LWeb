@@ -24,6 +24,7 @@
     <!-- 图标 CSS-->
     <link rel="stylesheet" th:href="@{/plugins/fonts/font-awesome/font-awesome.css}">
     <link rel="stylesheet" th:href="@{/plugins/fonts/web-icons/web-icons.css}">
+    <link rel="stylesheet" th:href="@{/plugins/themes/base/css/site.css}">
     <link rel="stylesheet" th:href="@{/css/global.css}">
     <!-- 插件 CSS -->
     <link rel="stylesheet" th:href="@{/plugins/vendor/datatables-bootstrap/dataTables.bootstrap.css}" >
@@ -33,76 +34,58 @@
 </head>
 
 <body class="layout-full">
-    <div class="page animation-fade page-data-tables">
-        <div class="form-inline example-box margin-bottom-20" id="lqtoolbar" role="form">
-            <div class="form-group">
-                <label for="DTMinAge">最小年龄:</label>
-                <input type="text" class="form-control" id="DTMinAge" name="DTMinAge" placeholder="最小年龄">
+    <div class="page animation-fade page-data-tables page-content">
+
+        <div class="panel">
+
+            <div class="lqtoolbar">
+                <div class="form-inline">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-outline btn-primary">添加管理员</button>
+                    </div>
+
+                    <div class="form-group input">
+                        <label for="DTMinAge">用户名:</label>
+                        <input type="text" class="form-control" id="DTMinAge" name="DTMinAge">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-outline btn-primary">搜索</button>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="DTMaxAge">最大年龄:</label>
-                <input type="text" class="form-control" id="DTMaxAge" name="DTMaxAge" placeholder="最大年龄">
+
+
+            <div class="form-inline modifyButtonGroup">
+                <span class="button">修改</span>
+                <span class="button">删除</span>
             </div>
+
+            <span class="checkbox-custom checkbox-primary tableCheckBox" style="display: none">
+                <input class="selectable-all" type="checkbox">
+            </span>
         </div>
 
-        <div class="panel-body">
-            <table class="lqtable table table-bordered table-hover dataTable table-striped width-full text-nowrap"
-                   data-paging-type="full_numbers">
-                <thead>
-                <tr>
-                    <th lq-colum="name">姓名</th>
-                    <th lq-colum="zhiwei">职位</th>
-                    <th>工作地点</th>
-                    <th>年龄</th>
-                    <th>入职时间</th>
-                    <th>年薪</th>
-                    <th>年薪2</th>
-                    <th>年2薪</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>李霞</td>
-                    <td>系统架构师</td>
-                    <td>北京</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>&yen;320,800</td>
-                    <td>2011/04/25</td>
-                    <td>2011/04/25</td>
-                </tr>
 
-                </tbody>
-            </table>
 
-            <table id="sss" class="lqtable table table-bordered table-hover dataTable table-striped width-full text-nowrap"
-                   data-paging-type="full_numbers">
-                <thead>
-                <tr>
-                    <th>姓名</th>
-                    <th>职位</th>
-                    <th>工作地点</th>
-                    <th>年龄</th>
-                    <th>入职时间</th>
-                    <th>年薪</th>
-                    <th>年薪2</th>
-                    <th>年2薪</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>李霞</td>
-                    <td>系统架构师</td>
-                    <td>北京</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>&yen;320,800</td>
-                    <td>2011/04/25</td>
-                    <td>2011/04/25</td>
-                </tr>
+            <div class="panel-body ">
+                <table id="lq-table-id" class="lqtable table table-bordered table-hover dataTable table-striped width-full text-nowrap"
+                       data-paging-type="full_numbers" lq-tool=".lqtoolbar" lq-type="post" lq-url="/web/admin/list">
+                    <thead>
+                    <tr>
+                        <th lq-colum="id" lq-tool="checkbox">
+                        </th>
+                        <th lq-colum="name">用户名</th>
+                        <th lq-colum="id" lq-sort="true">所属分组</th>
+                        <th lq-tool=".modifyButtonGroup">操作集合</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+
+            </div>
+
         </div>
 
     </div>
@@ -119,3 +102,4 @@
 <script th:src="@{/js/common/global.js}"></script>
 <script th:src="@{/js/common/table.js}"></script>
 </html>
+
