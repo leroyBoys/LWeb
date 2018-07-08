@@ -16,7 +16,7 @@ $(function () {
             return $(target).clone();
         }
         //check box
-        _this.html('<div class="tableCheckBox"><span class="all">全选</span> | <span class="unselect">反选</span></div>');
+        _this.html('<div class="tableCheckBox"><span class="all link">全选</span> | <span class="unselect link">反选</span></div>');
         return $('<input type="checkbox"  class="checkchild"  />');
     }
 
