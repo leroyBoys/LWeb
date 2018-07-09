@@ -8,6 +8,7 @@ import com.lgame.util.json.FastJsonTool;
 import com.lqsmart.mysql.entity.LQPage;
 import com.lweb.entity.QueryPage;
 import com.lweb.manager.SessionManager;
+import com.lweb.manager.UploadManager;
 import com.lweb.service.AdminService;
 import com.lweb.service.WebMainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -59,14 +61,18 @@ public class WebMain {
     }
 
     @PostMapping("/web/admin/save")
-    public boolean saveAdmin(Admin admin, HttpSession session){
+    public boolean saveAdmin(Admin admin, MultipartFile file, HttpSession session){
         if(admin.getId() == 0 || admin.getId() != SessionManager.getInstance().getAdminFormSession(session).getId()){
             admin.setPassword(MD5Tool.GetMD5Code(admin.getName()+"admin"));
         }else {
             admin.setPassword(MD5Tool.GetMD5Code(admin.getPassword()));
         }
+        String path = UploadManager.getInstance().uploadAdminPic(file);
+        if(path != null){
+            admin.setImage(path);
+        }
         System.out.println(FastJsonTool.getJsonFromBean(admin));
-        adminService.saveAdmin(admin);
+       // adminService.saveAdmin(admin);
         return true;
     }
 }

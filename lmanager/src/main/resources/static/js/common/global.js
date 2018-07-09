@@ -1,6 +1,7 @@
 $.fn.lqform = function(options) {
     var defaults = {
         'url':null,
+        'before_submit':null,//返回修改后的对象
         'submit_callback':null,
         'check':null,
         'isRight':true
@@ -28,17 +29,43 @@ $.fn.lqform = function(options) {
 
         }catch(e){
             console.error(e);
+            event.preventDefault();
+            return;
         }
 
         var url = settings.url == null?$(this).attr("action"):settings.url;
         console.log("form submit  data:",_this.data,"url:"+url);
-        $.post(url, _this.data,
-            function(res){
-                if(settings.submit_callback != null){
-                    settings.submit_callback(res);
+        if(_this.find("input[type='file']").length != 0){
+            var uploading = false;
+
+            console.log(new FormData(_this[0]));
+            $.ajax({
+                url: url,
+                type: 'POST',
+                cache: false,
+                data: settings.before_submit != null?settings.before_submit(new FormData(_this[0])):new FormData(_this[0]),
+                processData : false,         // 告诉jQuery不要去处理发送的数据
+                contentType : false,        // 告诉jQuery不要去设置Content-Type请求头
+                dataType:"json",
+                beforeSend: function(){
+                    uploading = true;
+                },
+                success : function(data) {
+                    if(settings.submit_callback != null){
+                        settings.submit_callback(res);
+                    }
+                   console.log("suc",data);
+                    uploading = false;
                 }
             });
-
+        }else {
+            $.post(url, settings.before_submit != null?settings.before_submit(_this.data):_this.data,
+                function(res){
+                    if(settings.submit_callback != null){
+                        settings.submit_callback(res);
+                    }
+                });
+        }
         event.preventDefault();
     })
 

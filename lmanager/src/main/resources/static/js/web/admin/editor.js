@@ -90,3 +90,29 @@ $("#head_pic").on("change",function (e) {
 
 });
 
+$("#adminForm").lqform({
+    "before_submit":function (formData) {
+        return formData;
+    },
+    "submit_callback":function (data) {
+        console.log(data);
+    }
+
+})
+
+function convertToFile(base64Codes){//将base64转化blob，并放到form中
+    var form=document.forms[0];
+    var formData = new FormData(form);
+    var img_name=$("#sourceImage").val();
+    formData.append("file",convertBase64UrlToBlob(base64Codes),img_name);//img是input的name属性，与后台的对应即可
+}
+function convertBase64UrlToBlob(urlData){
+    var bytes=window.atob(urlData.split(',')[1]);        //去掉url的头，并转换为byte
+    //处理异常,将ascii码小于0的转换为大于0
+    var ab = new ArrayBuffer(bytes.length);
+    var ia = new Uint8Array(ab);
+    for (var i = 0; i < bytes.length; i++) {
+        ia[i] = bytes.charCodeAt(i);
+    }
+    return new Blob( [ab] , {type : 'image/png'});
+}
