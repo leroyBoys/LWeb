@@ -1,0 +1,24 @@
+.head{
+    height: 100px;
+}
+.simpleCropper{
+    width: 400px;
+    height: 300px;
+}
+#simpleCropper{
+    width: auto;
+    height: 100%;
+}
+#simpleCropperPreview{
+    width: 400px;
+    height: 300px;
+}
+#simpleCropperPreview image{
+    width: auto;
+    height: 100%;
+}
+
+.cropper-preview{overflow:hidden}
+.img-preview{float:left;margin:0 10px 10px 0;overflow:hidden}
+.img-preview>img{max-width:100%}
+.preview-lg{width:263px;height:148px}

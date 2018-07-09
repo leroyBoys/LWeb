@@ -27,7 +27,7 @@ $.fn.lqform = function(options) {
             }
 
         }catch(e){
-            console.log(e);
+            console.error(e);
         }
 
         var url = settings.url == null?$(this).attr("action"):settings.url;
@@ -107,5 +107,32 @@ $.fn.lqform = function(options) {
     return this;
 }
 
+$("form.lq-form").lqform();
+
+$('.lq-tab').on("click","body",function () {
+    console.log("====================lq-tab");
+});
+
 
 $('[data-toggle="tooltip"]').tooltip({trigger: 'hover'});
+
+////url 参数
+function UrlParamters() {
+    var name,value;
+    var str=location.href; //取得整个地址栏
+    var num=str.indexOf("?")
+    str=str.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+
+    var arr=str.split("&"); //各个参数放到数组里
+    var params={};
+
+    for(var i=0;i < arr.length;i++){
+        num=arr[i].indexOf("=");
+        if(num>0){
+            name=arr[i].substring(0,num);
+            value=arr[i].substr(num+1);
+            params[name]=value;
+        }
+    }
+    return params;
+}

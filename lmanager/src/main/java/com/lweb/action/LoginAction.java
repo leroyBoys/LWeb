@@ -4,6 +4,7 @@ import com.dbbase.moudle.admin.Admin;
 import com.lgame.util.json.FastJsonTool;
 import com.lweb.entity.SystemMenu;
 import com.lweb.manager.CacheManager;
+import com.lweb.manager.SessionManager;
 import com.lweb.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,7 +35,7 @@ public class LoginAction {
             return "/login";
         }
 
-        request.getSession().setAttribute("user",admin);
+        SessionManager.getInstance().setAdminFormSession(request.getSession(),admin);
         return "redirect:main";
     }
     @RequestMapping("/default_main")

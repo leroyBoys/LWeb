@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <title>修改管理员</title>
+    <!--[if lt IE 10]>
+    <script th:src="@{/plugins/vendor/media-match/media.match.min.js}"></script>
+    <script th:src="@{/plugins/vendor/respond/respond.min.js}"></script>
+    <![endif]-->
+    <!-- 样式 -->
+    <link rel="stylesheet" th:href="@{/plugins/themes/global/css/bootstrap.css}">
+    <!-- 图标 CSS-->
+    <link rel="stylesheet" th:href="@{/plugins/fonts/font-awesome/font-awesome.css}">
+    <link rel="stylesheet" th:href="@{/plugins/fonts/web-icons/web-icons.css}">
+    <link rel="stylesheet" th:href="@{/plugins/themes/base/css/site.css}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <!-- 插件 CSS -->
+    <link rel="stylesheet" th:href="@{/plugins/vendor/datatables-bootstrap/dataTables.bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/plugins/vendor/datatables-responsive/dataTables.responsive.css}">
+    <link rel="stylesheet" th:href="@{/plugins/vendor/cropper/cropper.css}">
+    <link rel="stylesheet" th:href="@{/css/web/admin/editor.css}">
+
+    <script th:src="@{/plugins/jquery.min.js}"></script>
+    <script th:src="@{/plugins/bootstrap.min.js}"></script>
+</head>
+
+
+<body class="layout-full">
+<div class="page animation-fade page-data-tables page-content">
+
+    <form  class="form-horizontal panel panel-body container-fluid lq-form" action="/web/admin/save">
+        <div class="form-group">
+           <div class="head_tip">
+               重置管理员密码:密码为昵称+admin,例如tome的重置密码为tomeadmin
+           </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-5 simpleCropper">
+                <div class="cropper" id="simpleCropper">
+                    <img id="sourceImage" src="/images/login/bg.jpg" alt="headimage">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cropper-preview clearfix" id="simpleCropperPreview">
+                    <div class="img-preview preview-lg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">头像：</label>
+            <div class="col-md-9">
+                <div class="input-group">
+                    <input id="photoCover" class="form-control" placeholder="可以填写网络图片地址" type="text">
+                    <label class="input-group-btn">
+                        <input id="head_pic" type="file" name="file" accept="image/*"  style="left: -9999px; position: absolute;">
+                        <span class="btn btn-default">选择图片上传</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">用户昵称：</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="name" placeholder="昵称" autocomplete="off" required="true">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">用户密码：</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" name="password" placeholder="密码" autocomplete="off" required="true">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">重复密码：</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" placeholder="密码" autocomplete="off" required="true">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">真实姓名：</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" name="real_name" placeholder="姓名" autocomplete="off" >
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">性别：</label>
+            <div class="col-sm-9">
+                <div class="radio-custom radio-default radio-inline">
+                    <input type="radio" id="inputHorizontalMale" name="sex" value="1">
+                    <label for="inputHorizontalMale">男</label>
+                </div>
+                <div class="radio-custom radio-default radio-inline">
+                    <input type="radio" id="inputHorizontalFemale" name="sex" checked="" value="0">
+                    <label for="inputHorizontalFemale">女</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">联系方式：</label>
+            <div class="col-sm-9">
+                <input class="form-control" name="phone" placeholder="电话/邮箱" autocomplete="off">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">身份证：</label>
+            <div class="col-sm-9">
+                <input class="form-control" name="id_card" placeholder="身份证" autocomplete="off">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary">提交</button>
+                <button type="reset" class="btn btn-default btn-outline">重置</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+</div>
+
+<!-- Mainly scripts -->
+<script th:src="@{/plugins/vendor/slimscroll/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables/jquery.dataTables.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-bootstrap/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-responsive/dataTables.responsive.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-buttons/dataTables.buttons.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-buttons/buttons.print.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-buttons/buttons.html5.min.js}"></script>
+<script th:src="@{/plugins/vendor/cropper/cropper.js}"></script>
+<script th:src="@{/plugins/themes/base/js/app.js}"></script>
+<script th:src="@{/js/common/global.js}"></script>
+<script th:src="@{/js/common/alert.js}"></script>
+<script th:src="@{/js/web/admin/editor.js}"></script>
+</body>
+
+</html>

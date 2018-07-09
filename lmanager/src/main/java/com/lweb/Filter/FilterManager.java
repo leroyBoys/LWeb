@@ -1,6 +1,8 @@
 package com.lweb.Filter;
 
+import com.dbbase.moudle.admin.Admin;
 import com.lweb.manager.RouteManager;
+import com.lweb.manager.SessionManager;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -50,9 +52,7 @@ public class FilterManager implements Filter {
     }
 
     private void checkLogin(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) {
-        Object user = request.getSession().getAttribute("user");
-
-        user = new Object();
+        Admin user = SessionManager.getInstance().getAdminFormSession(request.getSession());
         //登录验证
         if(user != null){
             next(request,response,filterChain);

@@ -1,20 +1,20 @@
-(function (_0x5b4cc6, _0x361323, _0x4de82e) {
+(function (_0x5b4cc6, _0x361323, $) {
 
-    _0x4de82e('#simpleCropper img').cropper({
+    $('#simpleCropper img').cropper({
         'preview': '#simpleCropperPreview >.img-preview',
         'responsive': !![]
     });
-    var _0x5c39ba = _0x4de82e('#exampleFullCropper img'),
-        _0x50b486 = _0x4de82e('#inputDataX'),
-        _0x57afcd = _0x4de82e('#inputDataY'),
-        _0x2a0835 = _0x4de82e('#inputDataHeight'),
-        _0x329fe0 = _0x4de82e('#inputDataWidth');
+    var _0x5c39ba = $('#exampleFullCropper img'),
+        _0x50b486 = $('#inputDataX'),
+        _0x57afcd = $('#inputDataY'),
+        _0x2a0835 = $('#inputDataHeight'),
+        _0x329fe0 = $('#inputDataWidth');
     _0x5c39ba['cropper']({
         'aspectRatio': 0x10 / 0x9,
         'preview': '#exampleFullCropperPreview > .img-preview',
         'responsive': !![],
         'crop': function () {
-            var _0x3f98af = _0x4de82e(this).data('cropper');
+            var _0x3f98af = $(this).data('cropper');
             if (typeof _0x3f98af !== 'undefined') {
                 _0x3f98af = _0x3f98af.getCropBoxData();
                 _0x50b486.val(Math['round'](_0x3f98af['left']));
@@ -24,19 +24,19 @@
             }
         }
     });
-    _0x4de82e(_0x5b4cc6)['on']('click', '[data-cropper-method]', function () {
-        var _0x2d6efb = _0x4de82e(this)['data'](),
-            _0x2b3078 = _0x4de82e(this).data('cropper-method'),
+    $(_0x5b4cc6)['on']('click', '[data-cropper-method]', function () {
+        var _0x2d6efb = $(this)['data'](),
+            _0x2b3078 = $(this).data('cropper-method'),
             _0x383205;
         if (_0x2b3078) {
             _0x383205 = _0x5c39ba.cropper(_0x2b3078, _0x2d6efb['option']);
         }
         if (_0x2b3078 === 'getCroppedCanvas') {
-            _0x4de82e('#getDataURLModal').modal();
-            _0x4de82e('#getImageData').html(_0x383205);
+            $('#getDataURLModal').modal();
+            $('#getImageData').html(_0x383205);
         }
     });
-    var _0x130586 = _0x4de82e('#inputImage');
+    var _0x130586 = $('#inputImage');
     if (_0x361323.FileReader) {
         _0x130586.change(function () {
             var _0x28f44a = new FileReader(),
@@ -59,7 +59,7 @@
     } else {
         _0x130586.addClass('hide');
     }
-    _0x4de82e('#setCropperData').click(function () {
+    $('#setCropperData').click(function () {
         var _0xf0350b = {
             'left': parseInt(_0x50b486.val()),
             'top': parseInt(_0x57afcd.val()),

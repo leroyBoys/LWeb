@@ -18,3 +18,15 @@ div.dataTables_length {
 .link:hover{
     color:#4169E1;
 }
+.head_tip{
+    text-align: center;
+    color: #0aa8e4;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition-delay: 999999s;
+    -webkit-transition: color 999999s ease-out, background-color 999999s ease-out;
+}
