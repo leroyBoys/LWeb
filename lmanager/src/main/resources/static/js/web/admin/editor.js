@@ -1,16 +1,36 @@
-
+var lqForm= $("#adminForm").lqform({
+    "before_submit":function (formData) {
+        if($cronBlob != null){
+            var img_name=$("#head_pic").val()
+            formData.append("file",$cronBlob,img_name)
+        }
+        return formData;
+    },
+    "submit_callback":function (data) {
+        console.log(data);
+        window.location.href=document.referrer;
+    }
+});
 (function () {
 
     function createNew() {
         $("input[type=password]").parent().parent().remove();
+        $(".form-group.head_editor").remove();
     }
 
     function createSelf() {//修改自己的资料
 
     }
 
-    function modify(id) {//修改自己的资料
-        $("input[type=password]").remove();
+    function modify(id) {
+        createNew();
+
+        $.post("/web/admin/get?id="+id,function (data) {
+            if(data==null){
+                return
+            }
+            lqForm.update(data);
+        })
     }
 
 
@@ -29,90 +49,84 @@
     modify(id);
 })(Window)
 
-$image = $('#sourceImage');
-$image.cropper({
+var $image = $('#sourceImage');
+var $cronBlob = null;
+var $cronBlob_old = null;
+var $options ={
+    aspectRatio: 4/3,
+    dragMode:'move',
+    zoomOnWheel:false,
+    movable:false,
     'preview': '#simpleCropperPreview >.img-preview',
     'responsive': !![]
-});
+};
 
 $("#head_pic").on("change",function (e) {
     var file = e.target.files[0] || e.dataTransfer.files[0];
+    if(!file){
+        return
+    }
     var _name = $(this).val();
     var _fileName = _name.substring(_name.lastIndexOf(".") + 1).toLowerCase();
     if (_fileName !== "png" && _fileName !== "jpg") {
         lqtip.alert("上传图片格式不正确，请重新上传");
         return
     }
-/*
-
-    var URL = window.URL || window.webkitURL;
-    var files = this.files;
-    var file;
-
-    if (!$image.data('cropper')) {
-        return;
-    }
-
-    if (files && files.length) {
-        file = files[0];
-
-        if (/^image\/\w+$/.test(file.type)) {
-
-            if (uploadedImageURL) {
-                URL.revokeObjectURL(uploadedImageURL);
-            }
-
-            var uploadedImageURL = URL.createObjectURL(file);
-            $image.cropper('destroy').attr('src', uploadedImageURL).cropper({ aspectRatio: 16 / 9,});
-
-        } else {
-            window.alert('Please choose an image file.');
-        }
-    }
-*/
-
 
     var reader = new FileReader();
     reader.onload = function () {
-        $("#sourceImage").cropper('destroy').attr('src', this.result).cropper({
-            'preview': '#simpleCropperPreview >.img-preview',
-            'responsive': !![]
-        });
-
-      //  $("#simpleCropper").html('  <img id="sourceImage" src="'+this.result+'" alt="headimage">');
-    /*    $('#sourceImage').cropper({
-            'preview': '#simpleCropperPreview >.img-preview',
-            'responsive': !![]
-        });*/
+        $cronBlob = file;
+        $cronBlob_old = file;
+        $image.cropper('destroy').attr('src', this.result).cropper($options);
     }
-
     reader.readAsDataURL(file);
 
 });
 
-$("#adminForm").lqform({
-    "before_submit":function (formData) {
-        return formData;
-    },
-    "submit_callback":function (data) {
-        console.log(data);
-    }
 
+$(".savecropper").click(function () {
+    var cropper = $image.data('cropper');
+    if (!cropper) {
+        return;
+    }
+    cropper.getCroppedCanvas().toBlob(function(blob){
+        $cronBlob = blob;
+
+        var reader = new FileReader();
+        reader.onload = function () {
+            $image.cropper('replace',this.result,true );
+        }
+        reader.readAsDataURL($cronBlob);
+
+        cropper.clear();
+        $(".cropper-preview .img-preview").hide();
+    });
 })
 
-function convertToFile(base64Codes){//将base64转化blob，并放到form中
-    var form=document.forms[0];
-    var formData = new FormData(form);
-    var img_name=$("#sourceImage").val();
-    formData.append("file",convertBase64UrlToBlob(base64Codes),img_name);//img是input的name属性，与后台的对应即可
-}
-function convertBase64UrlToBlob(urlData){
-    var bytes=window.atob(urlData.split(',')[1]);        //去掉url的头，并转换为byte
-    //处理异常,将ascii码小于0的转换为大于0
-    var ab = new ArrayBuffer(bytes.length);
-    var ia = new Uint8Array(ab);
-    for (var i = 0; i < bytes.length; i++) {
-        ia[i] = bytes.charCodeAt(i);
+
+$(".begincropper").click(function () {
+
+    var cropper = $image.data('cropper');
+    if (!cropper) {
+        $image.cropper($options);
+        return;
     }
-    return new Blob( [ab] , {type : 'image/png'});
-}
+    cropper.crop();
+    $(".cropper-preview .img-preview").show();
+})
+
+$(".resetcropper").click(function () {
+
+    var cropper = $image.data('cropper');
+    if (!cropper) {
+        return;
+    }else if($cronBlob_old == null){
+        cropper.reset();
+        return
+    }
+    var reader = new FileReader();
+    reader.onload = function () {
+        $image.cropper('replace',this.result,true );
+    }
+    reader.readAsDataURL($cronBlob_old);
+})

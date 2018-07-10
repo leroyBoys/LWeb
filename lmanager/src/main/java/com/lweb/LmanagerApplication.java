@@ -1,5 +1,6 @@
 package com.lweb;
 
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.springframework.boot.SpringApplication;
@@ -26,6 +27,7 @@ public class LmanagerApplication  extends SpringBootServletInitializer implement
 		//2.添加fastjson的配置信息，比如是否要格式化返回的json数据
 //
 		FastJsonConfig fastJsonConfig=new FastJsonConfig();
+		fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteMapNullValue);
 		//fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
 		//3.在convert中添加配置信息
 		fastConverter.setFastJsonConfig(fastJsonConfig);

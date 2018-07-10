@@ -22,4 +22,6 @@ public interface AdminService {
     QueryPage getAdmins(QueryPage lqPage);
     Admin getAdminById(int id);
     void  saveAdmin(Admin admin);
+
+    void delAdmin(int id);
 }

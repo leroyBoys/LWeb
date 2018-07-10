@@ -49,7 +49,7 @@
         </div>
 
 
-        <div class="form-group">
+        <div class="form-group head_editor">
             <div class="col-md-3">
             </div>
             <div class="col-md-5 simpleCropper">
@@ -63,16 +63,23 @@
                 </div>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group head_editor">
             <label class="col-sm-3 control-label">头像：</label>
             <div class="col-md-9">
-                <div class="input-group">
-                    <input id="photoCover" class="form-control" placeholder="可以填写网络图片地址" type="text">
-                    <label class="input-group-btn">
-                        <input id="head_pic" type="file" name="file" accept="image/*"  style="left: -9999px; position: absolute;">
-                        <span class="btn btn-default">选择图片上传</span>
-                    </label>
-                </div>
+                <label class="inline-block">
+                    <span class="btn btn-default link begincropper">裁剪头像</span>
+                </label>
+                <label class="inline-block">
+                    <span class="btn btn-default link savecropper">保存截图</span>
+                </label>
+                <label class="inline-block">
+                    <span class="btn btn-default link resetcropper">恢复原图</span>
+                </label>
+                <!--  <input id="photoCover" class="form-control" disabled placeholder="可以填写网络图片地址" type="text">-->
+                <label class="inline-block">
+                    <input id="head_pic" type="file"  accept="image/*"  style="left: -9999px; position: absolute;">
+                    <span class="btn btn-default link">选择图片上传</span>
+                </label>
             </div>
         </div>
 

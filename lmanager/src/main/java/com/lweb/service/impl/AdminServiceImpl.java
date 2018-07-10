@@ -67,4 +67,9 @@ public class AdminServiceImpl implements AdminService {
     public void saveAdmin(Admin admin) {
         LQStart.getJdbcManager().getMaster().ExecuteEntity(admin);
     }
+
+    @Override
+    public void delAdmin(int id) {
+        LQStart.getJdbcManager().getMaster().DelEntity(Admin.class,id);
+    }
 }

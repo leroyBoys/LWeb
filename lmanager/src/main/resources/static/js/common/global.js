@@ -18,6 +18,11 @@ $.fn.lqform = function(options) {
     this.clear = function () {
         
     }
+    this.update=function (curData) {
+        _setDataForForm(_this.find("input"),curData);
+        _setDataForForm(_this.find("select"),curData)
+    }
+
     this.on("submit",function () {
         try{
             var check = settings.check == null?_check: settings.check;
@@ -38,7 +43,6 @@ $.fn.lqform = function(options) {
         if(_this.find("input[type='file']").length != 0){
             var uploading = false;
 
-            console.log(new FormData(_this[0]));
             $.ajax({
                 url: url,
                 type: 'POST',
@@ -50,11 +54,11 @@ $.fn.lqform = function(options) {
                 beforeSend: function(){
                     uploading = true;
                 },
-                success : function(data) {
+                success : function(res) {
                     if(settings.submit_callback != null){
                         settings.submit_callback(res);
                     }
-                   console.log("suc",data);
+                   console.log("suc",res);
                     uploading = false;
                 }
             });
@@ -127,6 +131,35 @@ $.fn.lqform = function(options) {
         return obj;
     }
 
+    function _setDataForForm(elementArray,obj){
+
+        elementArray.each(function(e){
+            if($(this).attr("name") == undefined){
+                return
+            }
+            var tagName = $(this)[0].tagName;
+            var type = $(this).attr("type");
+            var name = $(this).attr("name");
+            var required = $(this).attr("required");
+            if(tagName == "SELECT"){
+                if(obj[name] != undefined)$(this).val(obj[name]);
+
+            }else if(type == "checkbox"){
+                var arr =  obj[name];
+                if(arr != undefined){
+                    for(var i in arr){
+                        if(arr[i] == $(this).val){
+                            $(this).attr("checked",true);
+                        }
+                    }
+                }
+            }else{
+                if(obj[name] != undefined)$(this).val(obj[name]);
+            }
+
+        });
+    }
+
     function _tip(tipmsg,_element){
         console.log("====_tip:"+tipmsg,_element);
     }
@@ -136,8 +169,8 @@ $.fn.lqform = function(options) {
 
 $("form.lq-form").lqform();
 
-$('.lq-tab').on("click","body",function () {
-    console.log("====================lq-tab");
+$(document).on("click",".lq-tab",function () {
+    window.location.href = $(this).attr("data-url");
 });
 
 

@@ -42,7 +42,8 @@
             <div class="lqtoolbar">
                 <div class="form-inline">
                     <div class="form-group">
-                        <button type="button" class="btn btn-outline btn-primary">添加管理员</button>
+                        <button type="button" class="btn btn-outline btn-primary lq-tab" data-url="/userview/web_admin_editor">添加管理员</button>
+                        <button type="button" class="btn btn-outline btn-primary more_del" data-url="/web/admin/del">批量删除</button>
                     </div>
 
                     <div class="form-group input">
@@ -56,8 +57,8 @@
             </div>
 
                 <div class="form-inline modifyButtonGroup">
-                    <span class="link">修改</span>
-                    <span class="link">删除</span>
+                    <span class="link modify"  data-url="/userview/web_admin_editor">修改</span>
+                    <span class="link del" data-url="/web/admin/del">删除</span>
                 </div>
 
                 <span class="checkbox-custom checkbox-primary tableCheckBox" style="display: none">
@@ -66,14 +67,17 @@
 
 
                 <div class="panel-body ">
-                    <table id="lq-table-id"
-                           class="lqtable table table-bordered table-hover dataTable table-striped width-full text-nowrap"
+                    <table class="lqtable table table-bordered table-hover dataTable table-striped width-full text-nowrap"
                            data-paging-type="full_numbers" lq-tool=".lqtoolbar" lq-type="post" lq-url="/web/admin/list">
                         <thead>
                         <tr>
                             <th lq-colum="id" lq-tool="checkbox">
                             </th>
                             <th lq-colum="name">用户名</th>
+                            <th lq-colum="real_name">真实姓名</th>
+                            <th lq-colum="phone" >联系方式</th>
+                            <th lq-colum="id_card" >身份证</th>
+                            <th lq-colum="sex" >性别</th>
                             <th lq-colum="id" lq-sort="true">所属分组</th>
                             <th lq-tool=".modifyButtonGroup">操作集合</th>
                         </tr>
@@ -100,5 +104,7 @@
 <script th:src="@{/plugins/themes/base/js/app.js}"></script>
 <script th:src="@{/js/common/global.js}"></script>
 <script th:src="@{/js/common/table.js}"></script>
+<script th:src="@{/js/common/alert.js}"></script>
+<script th:src="@{/js/web/admin/list.js}"></script>
 </html>
 

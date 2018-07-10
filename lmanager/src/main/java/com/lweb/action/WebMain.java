@@ -3,6 +3,7 @@ package com.lweb.action;
 import com.dbbase.moudle.admin.Admin;
 import com.dbbase.moudle.system.Main;
 import com.dbbase.moudle.system.MainData;
+import com.lgame.util.comm.StringTool;
 import com.lgame.util.encry.MD5Tool;
 import com.lgame.util.json.FastJsonTool;
 import com.lqsmart.mysql.entity.LQPage;
@@ -60,6 +61,23 @@ public class WebMain {
         return adminService.getAdmins(page);
     }
 
+    @PostMapping("/web/admin/get")
+    public Admin getAdmin(int id){
+        return adminService.getAdminById(id);
+    }
+
+    @PostMapping("/web/admin/del")
+    public Object delAdmin(String id){
+        String[] ids = id.split(",");
+        for(String idStr:ids){
+            if(StringTool.isEmpty(idStr)){
+                continue;
+            }
+            adminService.delAdmin(Integer.valueOf(idStr));
+        }
+        return true;
+    }
+
     @PostMapping("/web/admin/save")
     public boolean saveAdmin(Admin admin, MultipartFile file, HttpSession session){
         if(admin.getId() == 0 || admin.getId() != SessionManager.getInstance().getAdminFormSession(session).getId()){
@@ -71,8 +89,7 @@ public class WebMain {
         if(path != null){
             admin.setImage(path);
         }
-        System.out.println(FastJsonTool.getJsonFromBean(admin));
-       // adminService.saveAdmin(admin);
+        adminService.saveAdmin(admin);
         return true;
     }
 }
