@@ -196,3 +196,26 @@ function UrlParamters() {
     }
     return params;
 }
+
+$(document).on("click",".redirect_self",function () {
+    var id = $(this).parent().attr("lq-value");
+    id = id == undefined?"":id;
+    var url = $(this).attr("data-url")+id;
+    window.location.href = url;
+})
+
+$(document).on("click",".delete_target",function () {
+    var id = $(this).parent().attr("lq-value");
+    id = id == undefined?"":id;
+    var text = $(this).parent().attr("lq-text");
+    text = text == undefined?"确定要全部删除吗？":("确定要删除<b>"+text+"</b>吗");
+    var url = $(this).attr("data-url");
+    lqtip.confirm(text,function () {
+        console.log(url+"?id="+id);
+        $.post(url+"?id="+id,function (res) {
+            if(res){
+                lqtip.tip("删除成功")
+            }
+        })
+    })
+})

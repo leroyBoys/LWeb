@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <title>修改主页</title>
+    <!--[if lt IE 10]>
+    <script th:src="@{/plugins/vendor/media-match/media.match.min.js}"></script>
+    <script th:src="@{/plugins/vendor/respond/respond.min.js}"></script>
+    <![endif]-->
+    <!-- 样式 -->
+    <link rel="stylesheet" th:href="@{/plugins/themes/global/css/bootstrap.css}">
+    <!-- 图标 CSS-->
+    <link rel="stylesheet" th:href="@{/plugins/fonts/font-awesome/font-awesome.css}">
+    <link rel="stylesheet" th:href="@{/plugins/fonts/web-icons/web-icons.css}">
+    <link rel="stylesheet" th:href="@{/plugins/themes/base/css/site.css}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <!-- 插件 CSS -->
+    <link rel="stylesheet" th:href="@{/plugins/vendor/datatables-bootstrap/dataTables.bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/plugins/vendor/datatables-responsive/dataTables.responsive.css}">
+    <link rel="stylesheet" th:href="@{/plugins/vendor/cropper/cropper.css}">
+    <link rel="stylesheet" th:href="@{/css/web/admin/editor.css}">
+
+    <script th:src="@{/plugins/jquery.min.js}"></script>
+    <script th:src="@{/plugins/bootstrap.min.js}"></script>
+</head>
+
+
+<body class="layout-full">
+
+
+<div class="page animation-fade">
+    <div class="page-aside">
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="page-aside-inner height-full" data-plugin="slimScroll">
+            <section class="page-aside-section">
+                <h5 class="page-aside-title">主要</h5>
+                <div class="list-group">
+                    <a class="list-group-item active" href="javascript:;">
+                        <i class="icon wb-dashboard" aria-hidden="true"></i>概览
+                    </a>
+                </div>
+            </section>
+            <section class="page-aside-section">
+                <h5 class="page-aside-title">筛选</h5>
+                <div class="list-group">
+                    <a class="list-group-item" href="javascript:;">
+                        <i class="icon wb-image" aria-hidden="true"></i>图片
+                    </a>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <div class="page-main">
+        <div class="page-content">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">论语学而篇第一</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <small>
+                            <b>作者：</b><abbr title="名丘，字仲尼">孔子</abbr>（
+                            <time>前551年9月28日－前479年4月11日</time>
+                            ）
+                        </small>
+                    </p>
+                    <h4>本篇引语</h4>
+                    <p>总之，本章提出以学习为乐事，做到人不知而不愠，反映出孔子学而不厌、诲人不倦、注重修养、严格要求自己的主张。这些思想主张在《论语》书中多处可见，有助于对第一章内容的深入了解。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+<script th:src="@{/plugins/vendor/slimscroll/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/plugins/themes/base/js/app.js}"></script>
+<script th:src="@{/js/common/global.js}"></script>
+<script th:src="@{/js/common/alert.js}"></script>
+<script th:src="@{/js/web/admin/editor.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html class="no-js css-menubar" lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="author" content="admui.com">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <!-- 禁止搜索引擎抓取 -->
+    <meta name="robots" content="nofollow">
+    <!-- 禁止百度SiteAPP转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <title>主页列表</title>
+    <!--[if lt IE 10]>
+    <script th:src="@{/plugins/vendor/media-match/media.match.min.js}"></script>
+    <script th:src="@{/plugins/vendor/respond/respond.min.js}"></script>
+    <![endif]-->
+    <!-- 样式 -->
+    <link rel="stylesheet" th:href="@{/plugins/themes/global/css/bootstrap.css}">
+    <!-- 图标 CSS-->
+    <link rel="stylesheet" th:href="@{/plugins/fonts/font-awesome/font-awesome.css}">
+    <link rel="stylesheet" th:href="@{/plugins/fonts/web-icons/web-icons.css}">
+    <link rel="stylesheet" th:href="@{/plugins/themes/base/css/site.css}">
+    <link rel="stylesheet" th:href="@{/css/web/main/list.css}">
+    <!-- 插件 CSS -->
+    <script th:src="@{/plugins/jquery.min.js}"></script>
+    <script th:src="@{/plugins/bootstrap.min.js}"></script>
+</head>
+
+<body class="layout-full">
+    <div class="page animation-fade page-data-tables page-content">
+
+        <div class="page-content">
+            <div class="projects-sort">
+                <span class="projects-sort-label">排序： </span>
+                <div class="inline-block dropdown">
+                    <span class="dropdown-toggle" id="projects-menu" data-toggle="dropdown" aria-expanded="false" role="button">
+                        默认
+                        <i class="icon wb-chevron-down-mini" aria-hidden="true"></i>
+                    </span>
+                    <ul class="dropdown-menu animation-scale-up animation-top-left animation-duration-250" aria-labelledby="projects-menu" role="menu">
+                        <li role="presentation">
+                            <a href="javascript:;" role="menuitem" tabindex="-1">按进度</a>
+                        </li>
+                        <li class="active" role="presentation">
+                            <a href="javascript:;" role="menuitem" tabindex="-1">按开始日期</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:;" role="menuitem" tabindex="-1">按结束日期</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="projects-wrap">
+                <ul class="blocks blocks-100 blocks-xlg-5 blocks-md-4 blocks-sm-3 blocks-xs-2" data-plugin="animateList" data-child=">li">
+                    <li>
+                        <div class="panel">
+                            <figure class="overlay overlay-hover animation-hover">
+                                <img class="caption-figure" src="/images/placeholder.png">
+                                <figcaption class="overlay-panel overlay-background overlay-fade text-center vertical-align">
+                                    <div class="btn-group">
+                                        <div class="dropdown pull-left">
+                                            <button type="button" class="btn btn-icon btn-pure btn-default dropdown-toggle" title="设置">
+                                                <i class="icon wb-settings" aria-hidden="true"></i>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="">复制</a>
+                                                </li>
+                                                <li>
+                                                    <a href="">重命名</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <button type="button" class="btn btn-icon btn-pure btn-default" title="Delete" data-tag="project-delete">
+                                            <i class="icon wb-trash" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                    <button type="button" class="btn btn-outline btn-default project-button redirect_self" lq-url="/userview/web_main_editor?id=" lq-value="11">
+                                        修改项目
+                                    </button>
+                                </figcaption>
+                            </figure>
+                            <div class="time pull-right"></div>
+                            <div class="text-truncate">项目 01</div>
+                        </div>
+                    </li>
+
+
+
+                </ul>
+            </div>
+            <nav>
+                <ul class="pagination pagination-no-border">
+                    <li class="disabled">
+                        <a href="javascript:;" aria-label="上一页"><span aria-hidden="true">&laquo;</span></a>
+                    </li>
+                    <li class="active">
+                        <a href="javascript:;">1 <span class="sr-only">(当前)</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">2</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">3</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">4</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">5</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" aria-label="下一页"><span aria-hidden="true">&raquo;</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</body>
+<!-- 插件 -->
+<script th:src="@{/plugins/vendor/slimscroll/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables/jquery.dataTables.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-bootstrap/dataTables.bootstrap.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-responsive/dataTables.responsive.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-buttons/dataTables.buttons.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-buttons/buttons.print.min.js}"></script>
+<script th:src="@{/plugins/vendor/datatables-buttons/buttons.html5.min.js}"></script>
+<script th:src="@{/plugins/themes/base/js/app.js}"></script>
+<script th:src="@{/js/common/global.js}"></script>
+<script th:src="@{/js/common/alert.js}"></script>
+</html>
+
