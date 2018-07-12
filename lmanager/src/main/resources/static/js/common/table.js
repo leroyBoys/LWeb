@@ -20,11 +20,6 @@ $(function () {
         return $('<input type="checkbox"  class="checkchild"  />');
     }
 
-    $(document).on("change",".checkchild",function () {
-        var _parent = $(this).parent().parent().parent().parent().parent();
-        console.log("==", $(this),$(this).prop("checked"));
-    })
-
     $(document).on("click",".tableCheckBox .all",function () {
         var _parent = $(this).parent().parent().parent().parent().parent();
         _parent.find(".checkchild").prop("checked",true);
