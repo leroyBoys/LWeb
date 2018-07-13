@@ -1,30 +1,44 @@
-var lqForm= $("#adminForm").lqform({
-    "before_submit":function (formData) {
-        if($cronBlob != null){
-            var img_name=$("#head_pic").val()
-            formData.append("file",$cronBlob,img_name)
-        }
-        return formData;
-    },
-    "submit_callback":function (data) {
-        console.log(data);
-        window.location.href=document.referrer;
-    }
-});
 (function () {
 
+    var lqForm= $("#adminForm").lqform({
+        "before_submit":function (formData) {
+            if($cronBlob != null){
+                var img_name=$("#head_pic").val()
+                formData.append("file",$cronBlob,img_name)
+            }
+            return formData;
+        },
+        "submit_callback":function (data) {
+            console.log(data,from);
+            if(from == "self"){
+                lqtip.alert("保存成功,请刷新页面!")
+            }else {
+                window.location.href=document.referrer;
+            }
+        }
+    });
+
+    var from = "self";
     function createNew() {
+        from = "other";
         $("input[type=password]").parent().parent().remove();
         $(".form-group.head_editor").remove();
     }
 
     function createSelf() {//修改自己的资料
-
+        var id = $("#admin_id").val();
+        $("input[name='id']").val(id);
+        $.post("/web/admin/get?id="+id,function (data) {
+            if(data==null){
+                return
+            }
+            lqForm.update(data);
+            $("input[type='password']").val("");
+        })
     }
 
     function modify(id) {
         createNew();
-
         $.post("/web/admin/get?id="+id,function (data) {
             if(data==null){
                 return
@@ -35,11 +49,10 @@ var lqForm= $("#adminForm").lqform({
 
 
     var id = UrlParamters()['id'];
-
     if(id == undefined){
         //
-        var newStr = UrlParamters()['new'];
-        if(newStr == undefined || newStr==1){
+        var newStr = UrlParamters()['self'];
+        if(newStr == undefined){
             createNew();
             return
         }
@@ -47,6 +60,7 @@ var lqForm= $("#adminForm").lqform({
         return
     }
     modify(id);
+
 })(Window)
 
 var $image = $('#sourceImage');

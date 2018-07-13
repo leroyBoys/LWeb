@@ -47,7 +47,7 @@
                重置管理员密码:密码为昵称+admin,例如tome的重置密码为tomeadmin
            </div>
         </div>
-
+        <input type="hidden" name="id"/>
 
         <div class="form-group head_editor">
             <div class="col-md-3">
@@ -144,6 +144,7 @@
 
     </form>
 
+    <input type="hidden" id="admin_id" th:value="${session.user.id}">
 </div>
 </div>
 

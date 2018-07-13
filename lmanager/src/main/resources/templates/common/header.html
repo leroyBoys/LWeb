@@ -14,6 +14,9 @@
                 <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
                     <div class="btn-group">
                         <!---  <img class="navbar-brand-logo visible-lg visible-xs navbar-logo" src="../images/logo-white.svg" title="Admuissss">-->
+                        <th:block th:if="${session.user.image != null && !session.user.image.isEmpty()}">
+                            <img class="navbar-brand-logo visible-lg visible-xs navbar-logo" th:src="${session.user.image}" th:title="${session.user.name}">
+                        </th:block>
                         <th:block  th:text="${session.user.name}"></th:block>
                     </div>
 
@@ -21,7 +24,8 @@
                         <button type="button" class="btn btn-outline btn-default dropdown-toggle btn-sm btn-icon wb-chevron-down" id="versionToggle" data-toggle="dropdown" aria-expanded="false"></button>
                         <ul class="dropdown-menu" aria-labelledby="versionToggle" role="menu">
                             <li role="presentation">
-                                <a href="#" role="menuitem">修改账号</a>
+                                <a href="/userview/web_admin_editor?self=1" target="_blank" data-iframe role="menuitem">
+                                修改账号信息</a>
                             </li>
                             <li role="presentation">
                                 <a href="/login" role="menuitem">切换账号</a>

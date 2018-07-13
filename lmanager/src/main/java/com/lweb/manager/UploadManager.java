@@ -12,6 +12,7 @@ import java.io.IOException;
  */
 public class UploadManager {
     private static String root;
+    private static String url;
     private static UploadManager ourInstance = new UploadManager();
 
     public static UploadManager getInstance() {
@@ -21,8 +22,9 @@ public class UploadManager {
     private UploadManager() {
     }
 
-    public static void init(String path){
-        root = path;
+    public static void init(String uploadRoot,String uploadUrl){
+        root = uploadRoot;
+        url = uploadUrl;
     }
 
     public String uploadAdminPic(MultipartFile file){
@@ -33,12 +35,11 @@ public class UploadManager {
         if(StringTool.isEmpty(fileName)){
             return null;
         }
-        String filePath=root+"/head/admin";
+        String filePath="/head/admin";
         fileName = "head"+fileName.substring(fileName.lastIndexOf("."));
-        uploadFile(file,filePath,fileName);
-        return filePath+"/"+fileName;
+        uploadFile(file,root+filePath,fileName);
+        return url+filePath+"/"+fileName;
     }
-
 
     public static void uploadFile(MultipartFile file, String filePath, String fileName){
         File targetFile = new File(filePath);

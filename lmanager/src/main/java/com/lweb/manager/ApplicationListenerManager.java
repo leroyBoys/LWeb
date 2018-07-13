@@ -54,7 +54,7 @@ public class ApplicationListenerManager implements ApplicationListener {
             }
 
             LQStart.init(p);
-            UploadManager.init(env.getProperty("server.upload"));
+            UploadManager.init(env.getProperty("server.upload.root"),env.getProperty("server.upload.url"));
         } catch (Exception e) {
             e.printStackTrace();
         }

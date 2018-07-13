@@ -113,10 +113,14 @@ $.fn.lqform = function(options) {
                 if(obj[name] == undefined){
                     obj[name] =[];
                 }
-                if($(this).attr("checked") != undefined && $(this).attr("checked")){
+                if($(this).prop("checked")){
                     obj[name].push($(this).val());
                 }
-            }else{
+            }else if(type == "radio"){
+                if($(this).prop("checked")){
+                    obj[name]=$(this).val();
+                }
+            }else {
                 obj[name]=$(this).val();
 
                 if(required!= undefined && required){
@@ -153,6 +157,8 @@ $.fn.lqform = function(options) {
                         }
                     }
                 }
+            }else if(type == "radio"){
+                $(this).prop("checked",$(this).val() == obj[name]);
             }else{
                 if(obj[name] != undefined)$(this).val(obj[name]);
             }
@@ -200,7 +206,7 @@ function UrlParamters() {
 $(document).on("click",".redirect_self",function () {
     var id = $(this).parent().attr("lq-value");
     id = id == undefined?"":id;
-    var url = $(this).attr("data-url")+id;
+    var url = $(this).attr("lq-url")+id;
     window.location.href = url;
 })
 
@@ -209,7 +215,7 @@ $(document).on("click",".delete_target",function () {
     id = id == undefined?"":id;
     var text = $(this).parent().attr("lq-text");
     text = text == undefined?"确定要全部删除吗？":("确定要删除<b>"+text+"</b>吗");
-    var url = $(this).attr("data-url");
+    var url = $(this).attr("lq-url");
     lqtip.confirm(text,function () {
         console.log(url+"?id="+id);
         $.post(url+"?id="+id,function (res) {

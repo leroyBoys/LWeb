@@ -80,6 +80,7 @@ public class WebMain {
 
     @PostMapping("/web/admin/save")
     public boolean saveAdmin(Admin admin, MultipartFile file, HttpSession session){
+        System.out.println(FastJsonTool.getJsonFromBean(admin));
         if(admin.getId() == 0 || admin.getId() != SessionManager.getInstance().getAdminFormSession(session).getId()){
             admin.setPassword(MD5Tool.GetMD5Code(admin.getName()+"admin"));
         }else {
