@@ -8,7 +8,7 @@ $(".panel .item_button").each(function () {
     iframe.attr("src", $(this).attr("lq-url")+$(this).attr("lq-value"));
 
     iframe.load( function() {
-        var target = $(this).contents().find(".panel-body")[0];
+        var target = $(this).contents().find(".app_body")[0];
         html2canvas(target).then(function (canvas) {
             var imgUri = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"); // 获取生成的图片的url
             img.attr("src",imgUri)

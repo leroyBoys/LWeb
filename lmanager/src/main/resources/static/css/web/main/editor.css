@@ -1,0 +1,68 @@
+.content{
+    margin-left: 0px;
+}
+.content .theme,.content .theme_style{
+    background-color: #FFF;
+    position: fixed;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 200px;
+    height: 100%;
+    left: 0;
+    top:0;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.content .theme_style{
+    border-left:none;
+    width: 300px;
+    margin-left: 1px;
+}
+
+.content .theme_style{
+    padding-top: 0;
+    left: 200px;
+}
+
+.content .app_body{
+    margin-left: 400px;
+    height: 100%;
+}
+.theme .theme_content,.theme_style .theme_content{
+    height: 100%;
+    width: 220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.theme_style .theme_content{
+    display: flex;
+    display: -webkit-flex; /* Safari */
+    width: 320px;
+    flex-wrap:wrap;
+    align-content: flex-start
+}
+
+.theme_style .theme_content .themesimple{
+    width: 42%;
+    height: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.theme_style .theme_content .themesimple:nth-child(odd){
+    margin-left: 0px
+}
+
+.app_body .body_content{
+    width: 460px;
+    min-height: 500px;
+    background-color: #FFF;
+    margin-bottom: 20px;
+}
+.themesimple img{
+    width: 100%;
+    height: 85%;
+}
+.themesimple  .title{
+    text-align: center;
+}
